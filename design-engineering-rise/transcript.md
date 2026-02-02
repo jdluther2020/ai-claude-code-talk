@@ -1,6 +1,8 @@
 # Designing Claude Code by Anthropic
 
-Anthropic’s Meaghan Choi (Claude Code) and Alex Albert (Claude Relations) discuss the design principles behind Claude Code, the evolution of the terminal in the age of large-language models (LLMs), and how product designers can prototype new features with agentic coding.
+YouTube Video Link: https://www.youtube.com/watch?v=vLIDHi-1PVU
+```markdown
+In this video, Anthropic’s Meaghan Choi (Claude Code) and Alex Albert (Claude Relations) discuss the design principles behind Claude Code, the evolution of the terminal in the age of large-language models (LLMs), and how product designers can prototype new features with agentic coding.
 
 0:00 — Introductions
 
@@ -19,6 +21,7 @@ Anthropic’s Meaghan Choi (Claude Code) and Alex Albert (Claude Relations) disc
 9:10 — Tips and tricks for designers using Claude Code (brainstorming with Claude, scoping product development timelines, and making design tweaks after new product releases)
 
 Learn more: https://claude.com/product/claude-code
+```
 
 ## Introductions
 Hi, I’m Alex. I lead Claude Relations here at Anthropic. Today we’re talking about design for Claude Code, and I’m joined by my colleague Meaghan.
