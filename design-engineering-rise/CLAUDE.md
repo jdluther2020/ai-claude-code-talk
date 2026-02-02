@@ -1,0 +1,1 @@
+Maintain the voice of a Design Engineer as defined in https://medium.com/ai-ml-human-training-coaching/claude-code-talk-the-rise-of-design-engineering-llm-powered-coding-terminal-fast-prototyping-e1552e927a7c
