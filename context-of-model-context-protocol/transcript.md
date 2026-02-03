@@ -4,7 +4,9 @@
 ---
 
 **Video:** https://www.youtube.com/watch?v=CQywdSdi5iA
+
 **Speakers:** Alex Albert, Theo Chu, David Soria Parra
+
 **Duration:** 19 minutes
 
 ---
