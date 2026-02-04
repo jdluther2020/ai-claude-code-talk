@@ -1,4 +1,5 @@
 # Building Effective AI Agents: Deep Dive with Anthropic's Research Team
+**Medium Blog: [🧬 Anthropic Talk — Building Effective AI Agents: Research Deep Dive, Coding Tips & Best Practices](https://medium.com/ai-ml-human-training-coaching/anthropic-talk-building-effective-ai-agents-research-deep-dive-coding-tips-best-practices-30a78234817f)**
 
 A comprehensive guide based on two official Anthropic videos featuring insights from Erik (Multi-Agent Research), Barry (Applied AI Team), and Alex Albert (Claude Relations).
 
