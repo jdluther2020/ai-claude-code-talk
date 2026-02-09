@@ -1,9 +1,10 @@
-# AI Claude Code Talk
+# AI Blogs
 
 This repository contains all assets for the Medium Blog Publication: AI & ML Human Training/Coaching under the topic Claude Code Talk.
 
 ## 📚 Article Index (Newest First)
-* **[🔴 ICYMI: Claude Opus 4.6 is LIVE — Your Unique Guide to the Latest & Smartest Model Yet](https://medium.com/ai-ml-human-training-coaching/icymi-claude-opus-4-6-is-live-your-unique-guide-to-the-latest-smartest-model-yet-3da86349f0ed)** — Curated authoritative information and links to help you master Anthropic’s most capable model. [[Technical Assets](./model-opus-4.6)]
+* **[🎚️ AI Term of the Day: Adaptive Thinking](#)** — Claude's approach to dynamic reasoning — and why it matters for the industry. [[Technical Assets](./AI-TermOTD)]
+* **[🔴 ICYMI: Claude Opus 4.6 is LIVE — Your Unique Guide to the Latest & Smartest Model Yet](https://medium.com/ai-ml-human-training-coaching/icymi-claude-opus-4-6-is-live-your-unique-guide-to-the-latest-smartest-model-yet-3da86349f0ed)** — Curated authoritative information and links to help you master Anthropic's most capable model. [[Technical Assets](./model-opus-4.6)]
 * **[🚀 Claude Cowork — From Answers to Action: Delivered. Published. Live.](https://medium.com/ai-ml-human-training-coaching/claude-cowork-from-answers-to-action-delivered-published-live-b20f37b7a7e7)** — How Claude Work, Claude Desktop, and Claude in Chrome built a YouTube video — a slide show of Boris Cherny’s 14 Claude Code Tips. [[Technical Assets](./claude-cowork-answers-action-delivered-published)]
 * **[🧬 Anthropic Talk — Building Effective AI Agents: Research Deep Dive, Coding Tips & Best Practices](https://medium.com/ai-ml-human-training-coaching/anthropic-talk-building-effective-ai-agents-research-deep-dive-coding-tips-best-practices-30a78234817f)** — Research and Applied Team members share Agent/Multi-agent Architectures, Training, & Behind-the-scenes Stories. [[Technical Assets](./building-effective-ai-agents)]
 * **[💠 Anthropic Talk — The Context of the Model Context Protocol (MCP)](https://medium.com/ai-ml-human-training-coaching/anthropic-talk-the-context-of-the-model-context-protocol-mcp-7a6ff7d160cb)** — Using MCP to power AI applications like Claude or ChatGPT to connect to data sources. [[Technical Assets](./context-of-model-context-protocol)]
