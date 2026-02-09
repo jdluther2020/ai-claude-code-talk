@@ -8,7 +8,7 @@ A blog column explaining AI/ML terms for practitioners. Published on Medium unde
 
 | Date | Term | Link |
 |------|------|------|
-| 2026-02-09 | 🎚️ Adaptive Thinking | [Link pending] |
+| 2026-02-09 | 🔄 Adaptive Thinking | [Read on Medium](https://medium.com/ai-ml-human-training-coaching/ai-term-of-the-day-adaptive-thinking-1da0c5c594dd) |
 
 ---
 
@@ -16,4 +16,4 @@ A blog column explaining AI/ML terms for practitioners. Published on Medium unde
 
 | Term | Description |
 |------|-------------|
-| [Adaptive Thinking](./adaptive-thinking.md) | Claude's dynamic reasoning depth based on task complexity |
+| [Adaptive Thinking](./adaptive-thinking.md) | Claude's ability to dynamically scale its reasoning depth based on task complexity |
