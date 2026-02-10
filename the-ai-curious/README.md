@@ -9,7 +9,7 @@ A column for staying ahead of the AI revolution — without the technical jargon
 | Date | Title | Folder |
 |------|-------|--------|
 | TBD | Who is Teaching AI Morals? You have to "Askell" It! | [`teaching-ai-morals/`](./teaching-ai-morals/) |
-| 2026-02-XX | Vibe Code Breakout. The Culprit? Claude Code! | [`vibe-code-breakout-boris-cherny/`](./vibe-code-breakout-boris-cherny/) |
+| 2026-02-05 | Vibe Code Breakout. The Culprit? Claude Code! | [`vibe-code-breakout-boris-cherny/`](./vibe-code-breakout-boris-cherny/) |
 
 ---
 

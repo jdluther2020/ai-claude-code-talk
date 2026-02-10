@@ -10,7 +10,7 @@
 |-------|-------|
 | **Title** | 🔭 The AI Curious — Vibe Code Breakout. The Culprit? Claude Code! |
 | **Subtitle** | Who is Boris Cherny? That's the curious part. |
-| **Published** | 2026-02-XX |
+| **Published** | 2026-02-05 |
 | **Link** | [Read on Medium](https://medium.com/ai-ml-human-training-coaching/the-ai-curious-vibe-code-breakout-the-culprit-claude-code-8199d67c224a) |
 
 ---
