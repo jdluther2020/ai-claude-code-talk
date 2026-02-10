@@ -7,7 +7,7 @@ Public folder for the Teaching AI Morals article.
 - **Column:** 🔭 The AI Curious
 - **Title:** Who is Teaching AI Morals? You have to "Askell" It!
 - **Subtitle:** Who is Amanda Askell? Why does an AI company need a philosopher? Does Anthropic Claude need a soul? Lots of curious questions.
-- **Status:** Draft (Medium publish button broken)
+- **Status:** Published (2026-02-10)
 
 ## Source
 

@@ -10,8 +10,8 @@
 |-------|-------|
 | **Title** | 🔭 The AI Curious — Who is Teaching AI Morals? You have to "Askell" It! |
 | **Subtitle** | Who is Amanda Askell? Why does an AI company need a philosopher? Does Anthropic Claude need a soul? Lots of curious questions. |
-| **Published** | TBD |
-| **Link** | TBD |
+| **Published** | 2026-02-10 |
+| **Link** | [Read on Medium](https://medium.com/ai-ml-human-training-coaching/the-ai-curious-who-is-teaching-ai-morals-you-have-to-askell-it-7d24a40ed0be) |
 
 ---
 

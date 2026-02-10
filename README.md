@@ -3,6 +3,7 @@
 This repository contains all assets for the Medium Blog Publication: AI & ML Human Training/Coaching under the topic Claude Code Talk.
 
 ## 📚 Article Index (Newest First)
+* **[🔭 The AI Curious — Who is Teaching AI Morals? You have to "Askell" It!](https://medium.com/ai-ml-human-training-coaching/the-ai-curious-who-is-teaching-ai-morals-you-have-to-askell-it-7d24a40ed0be)** — Who is Amanda Askell? Why does an AI company need a philosopher? Does Claude need a soul? [[Technical Assets](./the-ai-curious/teaching-ai-morals)]
 * **[💸 AI Tokenomics 101: From Pixels to Payments](https://medium.com/ai-ml-human-training-coaching/ai-tokenomics-101-from-pixels-to-payments-de8b0b0e1c0e)** — Understanding the "currency" that powers autonomous agents and LLMs. [[Technical Assets](./AI-Tokens-Demystified)]
 * **[🔄 AI Term of the Day — Adaptive Thinking](https://medium.com/ai-ml-human-training-coaching/ai-term-of-the-day-adaptive-thinking-1da0c5c594dd)** — Claude's ability to dynamically scale its reasoning depth based on task complexity. You control the dial! [[Technical Assets](./AI-TermOTD)]
 * **[🔴 ICYMI: Claude Opus 4.6 is LIVE — Your Unique Guide to the Latest & Smartest Model Yet](https://medium.com/ai-ml-human-training-coaching/icymi-claude-opus-4-6-is-live-your-unique-guide-to-the-latest-smartest-model-yet-3da86349f0ed)** — Curated authoritative information and links to help you master Anthropic's most capable model. [[Technical Assets](./model-opus-4.6)]
