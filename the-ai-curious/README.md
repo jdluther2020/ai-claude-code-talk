@@ -15,6 +15,6 @@ A column for staying ahead of the AI revolution — without the technical jargon
 
 ## About This Column
 
-> 🔭 The AI Curious is my new column for staying ahead of the AI revolution — without the technical jargon. Join me as we explore the day-to-day evolution of the tools and trends that are reshaping our world, one "curious" discovery at a time.
+> 🔭 The AI Curious is my column for staying ahead of the AI revolution — without the technical jargon. Join me as we explore the day-to-day evolution of the tools and trends that are reshaping our world, one "curious" discovery at a time.
 
 **Target Audience:** Non-technical professionals curious about AI trends, cultural shifts, and the people behind the technology.
