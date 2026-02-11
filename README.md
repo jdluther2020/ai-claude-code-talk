@@ -3,6 +3,7 @@
 This repository contains all assets for the Medium Blog Publication: AI & ML Human Training/Coaching under the topic Claude Code Talk.
 
 ## 📚 Article Index (Newest First)
+* **[🔬 AI Term of the Day — Interpretability: Opening the Black Box of LLM is Key to Building AI-Trust](https://medium.com/ai-ml-human-training-coaching/ai-term-of-the-day-interpretability-opening-the-black-box-of-llm-is-key-to-building-ai-trust-a6f7edba1a57)** — Why "Trust, but Verify" is the ultimate goal for AI interpretability. [[Technical Assets](./AI-TermOTD/interpretability)]
 * **[🔭 The AI Curious — Who is Teaching AI Morals? You have to "Askell" It!](https://medium.com/ai-ml-human-training-coaching/the-ai-curious-who-is-teaching-ai-morals-you-have-to-askell-it-7d24a40ed0be)** — Who is Amanda Askell? Why does an AI company need a philosopher? Does Claude need a soul? [[Technical Assets](./the-ai-curious/teaching-ai-morals)]
 * **[💸 AI Tokenomics 101: From Pixels to Payments](https://medium.com/ai-ml-human-training-coaching/ai-tokenomics-101-from-pixels-to-payments-de8b0b0e1c0e)** — Understanding the "currency" that powers autonomous agents and LLMs. [[Technical Assets](./AI-Tokens-Demystified)]
 * **[🔄 AI Term of the Day — Adaptive Thinking](https://medium.com/ai-ml-human-training-coaching/ai-term-of-the-day-adaptive-thinking-1da0c5c594dd)** — Claude's ability to dynamically scale its reasoning depth based on task complexity. You control the dial! [[Technical Assets](./AI-TermOTD)]
