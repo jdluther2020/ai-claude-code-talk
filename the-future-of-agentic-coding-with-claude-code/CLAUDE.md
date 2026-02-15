@@ -1,5 +1,5 @@
 ---
-topic: Claude Code Talk — The Future of Agentic Coding: Inside Look with Boris Cherny and 2 Coding Tips
+topic: "Claude Code Talk — The Future of Agentic Coding: Inside Look with Boris Cherny and 2 Coding Tips"
 context: Claude Code Talk
 reference: https://medium.com/ai-ml-human-training-coaching/claude-code-talk-the-future-of-agentic-coding-inside-look-with-boris-cherny-and-2-coding-tips-dbfa69fa08e0
 ---
