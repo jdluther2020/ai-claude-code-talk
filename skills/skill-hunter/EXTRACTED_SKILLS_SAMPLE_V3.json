@@ -1,0 +1,708 @@
+{
+  "timestamp": "2026-02-16T01:45:44.569176",
+  "total_extracted": 100,
+  "successful": 100,
+  "failed": 0,
+  "extractions": [
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "wgzhao/Addax",
+      "content_length": 12056,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "luofengmacheng/algorithms",
+      "content_length": 548,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "sockethub/sockethub",
+      "content_length": 6304,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "Skill.md",
+      "repository": "ziwenhahaha/qqsg_struct",
+      "content_length": 1138,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "GitbookIO/public-docs",
+      "content_length": 27634,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.MD",
+      "repository": "milc3sar/AtomicCommit-Pro",
+      "content_length": 3461,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "openclaw/skills",
+      "content_length": 4675,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "Skill.md",
+      "repository": "wuyumin/VSCode",
+      "content_length": 550,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "krozgrov/ha-omlet-integration",
+      "content_length": 4997,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "vanviegen/aberdeen",
+      "content_length": 1715,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "Skill.md",
+      "repository": "ajokunu/Skill-Challenge-Tracker",
+      "content_length": 8313,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "kerim/zotero-code-execution",
+      "content_length": 15567,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "Skill.md",
+      "repository": "appmeee/ClawFreelance",
+      "content_length": 5561,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "jamierpond/yapi",
+      "content_length": 12239,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "hexschool/Resume",
+      "content_length": 551,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "s7safe/android-h1",
+      "content_length": 2521,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "Skill.md",
+      "repository": "iosif2/carenet-cursor",
+      "content_length": 4068,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "Nidhi786sharma/Intelligent-Customer-Help-Desk-with-Smart-Document-Understanding",
+      "content_length": 2777,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "Skill.md",
+      "repository": "wpz2020/xinghuodocs",
+      "content_length": 5642,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "umami-software/react-zen",
+      "content_length": 13176,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "win4r/mytest",
+      "content_length": 9,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "ericporres/llm-coding-workflow-skill",
+      "content_length": 19063,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "hot-dao/kit",
+      "content_length": 76,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "dixonsatit/dixonsatit",
+      "content_length": 1004,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "zentai/bayes_excersice",
+      "content_length": 5823,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "guoquan/flow-engine",
+      "content_length": 2389,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "phytesnet/RepaiRobot",
+      "content_length": 2484,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "xaneem/looped-builder-skill",
+      "content_length": 8707,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "bbatchelder/tap",
+      "content_length": 1898,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "jmandel/fhir-community-search",
+      "content_length": 2868,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "ZelStudio/zelai-cloud-sdk",
+      "content_length": 8480,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "dwehrmann/PAIRL-claude-skill",
+      "content_length": 7374,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "asmeyatsky/continuum",
+      "content_length": 11065,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "leonwgc/ant-admin-template",
+      "content_length": 5037,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "papdawin/customer-service-assistant",
+      "content_length": 2566,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "semaes111/MD-DEMANDAS-",
+      "content_length": 3368,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "jriverac/electron-scaffolding",
+      "content_length": 9799,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "barelyworkingcode/skill_email_outlook",
+      "content_length": 1998,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "lchenrique/politron-ide",
+      "content_length": 8795,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "zyl-mwy/ubuntu",
+      "content_length": 503,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "agentic-world-lab/semantic-router-configurator-skill",
+      "content_length": 4323,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "Ignacio-nube/ElClubdeMike2",
+      "content_length": 1822,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "jerryfane/twitterapi-molt",
+      "content_length": 10299,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "Skill.md",
+      "repository": "Asma-Farheen/Mark.down",
+      "content_length": 11,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "amengnew/Chain-Survivor",
+      "content_length": 1254,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "adamsonwalter/cortex-skill-writer",
+      "content_length": 3907,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "SasekLab/Zariah-construction",
+      "content_length": 3469,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "CafeIT25/dev-tools",
+      "content_length": 3187,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 12999,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 17812,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 6141,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 11663,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 7021,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 1138,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "duxweb/dux-lite",
+      "content_length": 1297,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 1871,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 9814,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 37046,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 5403,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "crazycs520/note",
+      "content_length": 799,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "aiviai/aiviai.github.io",
+      "content_length": 314,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "vishoov/obn18",
+      "content_length": 4117,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "jefdiesel/hudsonvalleyticks",
+      "content_length": 12834,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "ahmedmassoud033-sys/my-molt-agent",
+      "content_length": 208,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "Kashif-alt9/alt-123k",
+      "content_length": 7,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "forever8896/moltify",
+      "content_length": 11391,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "mikeyobrien/cloud-runrho-dev",
+      "content_length": 9955,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "zhuangli888/nullbyte-agent",
+      "content_length": 838,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "jp4g/aztec-claude-skill",
+      "content_length": 464,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "bentossell/share-session",
+      "content_length": 1609,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "mokhammadbahauddin/iron-will",
+      "content_length": 5427,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 1869,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 7982,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 2600,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "adityamparikh/spring-boot-4-migration-skill",
+      "content_length": 15471,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "cuongpt083/smart-pole-skill",
+      "content_length": 2710,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "freestylefly/xiaohongshu-skills",
+      "content_length": 2113,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 6307,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 2636,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "techatspree/GcRustVsJvm",
+      "content_length": 1003,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "cclank/xhs-cover-skill",
+      "content_length": 3327,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "krispuckett/skill-issue",
+      "content_length": 1637,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "skill.md",
+      "repository": "taki-hor/massage_chatbot",
+      "content_length": 22613,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 3975,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 15631,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 6718,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 9193,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "Shopify/Klint",
+      "content_length": 17347,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 23018,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 2492,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 20513,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 11735,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "norsizu/comfyui-zimage-skill",
+      "content_length": 4757,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "maorfsdev/reflect-yourself",
+      "content_length": 1273,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "zhangpeicheng8788-ux/xhs-skill",
+      "content_length": 10953,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "CSlawyer1985/contract-review-pro",
+      "content_length": 3454,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "cablate/Agentic-MCP-Skill",
+      "content_length": 3288,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 3957,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 9838,
+      "error": null
+    },
+    {
+      "status": "success",
+      "name": "SKILL.md",
+      "repository": "majiayu000/claude-skill-registry",
+      "content_length": 2997,
+      "error": null
+    }
+  ]
+}
