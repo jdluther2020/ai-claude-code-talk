@@ -2,7 +2,7 @@
 
 This directory contains tests for the crop-tool skill.
 
-## Quick Start
+## Quick Start (No API Key Required!)
 
 ### 1. Install Dependencies
 
@@ -13,39 +13,69 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 2. Set API Key
+### 2. Run Local Tests
+
+```bash
+python3 test_crop_local.py
+```
+
+✅ **No API key needed!** This tests all core functionality.
+
+### 3. (Optional) Test with Claude
+
+To test integration with Claude:
 
 ```bash
 export ANTHROPIC_API_KEY=your_api_key_here
-```
-
-### 3. Run Tests
-
-```bash
 python3 test_crop_tool.py
 ```
 
 ## Tests Included
 
-### Unit Tests
+### Local Tests (No API Key Needed) ✅
+
+**Location:** `test_crop_local.py`
+
+1. **Basic Crop Functionality**
+   - Full image crop
+   - Quarter crops
+   - Center region crops
+
+2. **Coordinate Validation**
+   - Out-of-range coordinate rejection
+   - Invalid bounding box detection
+   - Error message verification
+
+3. **Image Encoding**
+   - Base64 PNG encoding
+   - Image format conversion (RGBA to RGB)
+
+4. **Generated Test Images**
+   - Bar chart cropping
+   - Pie chart cropping
+   - Table document cropping
+   - Technical diagram cropping
+
+5. **Various Image Sizes**
+   - Small images (100×100)
+   - Medium images (500×300)
+   - Large images (1000×1000)
+   - Non-square images (200×600)
+
+### Integration Tests (Requires API Key)
 
 **Location:** `test_crop_tool.py`
 
-1. **Coordinate Normalization** ✅
+1. **Coordinate Normalization** (also in local tests)
    - Tests the 0-1 coordinate system
    - Verifies pixel conversion
-   - Tests edge cases (full image, quarters, center)
-   - Tests error handling (invalid coords)
+   - Tests edge cases
 
-2. **FigureQA Integration** (requires API key)
-   - Loads chart from FigureQA dataset
+2. **FigureQA Integration** (requires ANTHROPIC_API_KEY)
+   - Loads real chart from FigureQA dataset
    - Asks Claude to analyze with crop tool
-   - Verifies Claude uses the crop tool
-   - Tests end-to-end workflow
-
-3. **Local Image Analysis** (optional)
-   - Tests with local image files
-   - Useful for custom chart testing
+   - Verifies Claude uses the crop tool correctly
+   - Tests full end-to-end workflow
 
 ## Test Structure
 

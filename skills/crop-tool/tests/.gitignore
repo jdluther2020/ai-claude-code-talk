@@ -48,3 +48,6 @@ test-results/
 # Large files (use fixtures/README.md for guidance)
 *.mp4
 *.mov
+
+# Generated test images
+test_images/
