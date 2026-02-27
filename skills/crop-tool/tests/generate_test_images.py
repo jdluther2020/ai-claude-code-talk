@@ -74,34 +74,41 @@ def generate_pie_chart():
     # Title
     draw.text((200, 20), "Market Share", fill="black")
 
-    # Draw pie chart (simplified)
-    center = (200, 200)
-    radius = 100
+    # Draw pie chart using wedges
+    center = (150, 200)
+    radius = 80
 
-    # Segments
-    segments = [("Product A", 120, "red"), ("Product B", 90, "blue"), ("Product C", 60, "green"), ("Product D", 90, "yellow")]
+    # Segments (label, percentage, color)
+    segments = [("Product A", 30, "red"), ("Product B", 25, "blue"), ("Product C", 20, "green"), ("Product D", 25, "gold")]
 
     current_angle = 0
-    for label, size, color in segments:
-        # Draw segment (simplified as rectangle for clarity)
-        draw.arc(
+    for label, percentage, color in segments:
+        # Calculate start and end angles
+        angle_span = (percentage / 100) * 360
+        start_angle = current_angle
+        end_angle = current_angle + angle_span
+
+        # Draw pie slice
+        draw.pieslice(
             [
                 (center[0] - radius, center[1] - radius),
                 (center[0] + radius, center[1] + radius),
             ],
-            current_angle,
-            current_angle + (size / 360) * 360,
+            start=start_angle,
+            end=end_angle,
             fill=color,
-            width=2,
+            outline="black",
         )
-        current_angle += (size / 360) * 360
+
+        current_angle = end_angle
 
     # Legend
-    legend_y = 50
-    for i, (label, size, color) in enumerate(segments):
-        y = legend_y + i * 25
-        draw.rectangle([(400, y), (415, y + 10)], fill=color)
-        draw.text((425, y), f"{label} ({size}%)", fill="black")
+    legend_x = 320
+    legend_y = 80
+    for i, (label, percentage, color) in enumerate(segments):
+        y = legend_y + i * 30
+        draw.rectangle([(legend_x, y), (legend_x + 15, y + 15)], fill=color, outline="black")
+        draw.text((legend_x + 25, y), f"{label} ({percentage}%)", fill="black")
 
     test_images_dir = create_test_images_dir()
     img.save(test_images_dir / "pie_chart.png")
@@ -192,6 +199,55 @@ def generate_technical_diagram():
     return test_images_dir / "technical_diagram.png"
 
 
+def generate_challenging_chart():
+    """Generate a chart with small text - intentionally hard to read without cropping."""
+    img = Image.new("RGB", (900, 600), color="white")
+    draw = ImageDraw.Draw(img)
+
+    # Title
+    draw.text((250, 20), "Revenue Analysis - Q1-Q4 2024", fill="black")
+
+    # Draw bars with small labels
+    data = [("Q1", 125), ("Q2", 250), ("Q3", 187), ("Q4", 312)]
+
+    for i, (quarter, value) in enumerate(data):
+        x = 80 + i * 180
+        height = value * 1.2
+
+        # Bar
+        draw.rectangle([(x, 450 - height), (x + 120, 450)], fill="steelblue", outline="black", width=2)
+
+        # Small quarter label (hard to read)
+        draw.text((x + 30, 460), quarter, fill="darkgray")
+
+    # Small legend text - very hard to read without cropping
+    legend_x = 600
+    legend_y = 100
+    draw.text((legend_x, legend_y), "Values (hard to read at this size):", fill="black")
+
+    small_text = [
+        "Q1: $125,000",
+        "Q2: $250,000",
+        "Q3: $187,500",
+        "Q4: $312,000",
+        "",
+        "Total: $874,500",
+        "Growth: +23.5%",
+    ]
+
+    for i, text in enumerate(small_text):
+        # Very small, gray text
+        draw.text((legend_x, legend_y + 30 + i * 18), text, fill="gray")
+
+    # Add axis label
+    draw.text((300, 520), "Quarter", fill="black")
+    draw.text((20, 200), "Revenue ($K)", fill="black")
+
+    test_images_dir = create_test_images_dir()
+    img.save(test_images_dir / "challenging_chart.png")
+    return test_images_dir / "challenging_chart.png"
+
+
 def generate_all_test_images():
     """Generate all test images."""
     print("Generating test images...")
@@ -201,6 +257,7 @@ def generate_all_test_images():
         "pie_chart.png": generate_pie_chart(),
         "table_document.png": generate_table_document(),
         "technical_diagram.png": generate_technical_diagram(),
+        "challenging_chart.png": generate_challenging_chart(),
     }
 
     test_images_dir = create_test_images_dir()

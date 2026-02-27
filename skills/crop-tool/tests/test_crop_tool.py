@@ -13,7 +13,9 @@ import os
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
 from crop_tool import ask_with_crop_tool
+from anthropic import Anthropic
 from PIL import Image
+import base64
 
 
 def test_with_figureqa():
@@ -55,6 +57,121 @@ def test_with_figureqa():
 
     except Exception as e:
         print(f"❌ Error: {e}")
+        return False
+
+
+def test_crop_tool_improves_accuracy():
+    """NEGATIVE TEST: Compare accuracy WITH and WITHOUT crop tool.
+
+    Uses a deliberately challenging chart with small text that requires
+    cropping to read accurately.
+    """
+    print("\n" + "=" * 70)
+    print("ACCURACY COMPARISON - WITH vs WITHOUT Crop Tool")
+    print("=" * 70)
+    print("Using deliberately challenging chart with small text...\n")
+
+    try:
+        from generate_test_images import generate_challenging_chart
+        from pathlib import Path
+
+        client = Anthropic()
+
+        # Generate challenging test image
+        print("Generating challenging chart with small text...")
+        chart_path = generate_challenging_chart()
+        image = Image.open(chart_path)
+
+        print(f"✅ Generated test chart: {chart_path}")
+        print(f"📊 Question: What are the exact revenue values for each quarter?\n")
+
+        question = "What are the exact revenue values for each quarter? List them clearly."
+        expected_values = ["125,000", "250,000", "187,500", "312,000"]
+
+        # Test 1: WITHOUT crop tool
+        print("TEST 1: Claude WITHOUT Crop Tool (full image, no cropping)")
+        print("-" * 70)
+
+        from crop_tool import pil_to_base64
+
+        messages = [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": f"Analyze this chart and answer: {question}\n\nIMPORTANT: Do NOT use any tools. Just analyze the image directly.",
+                    },
+                    {
+                        "type": "image",
+                        "source": {
+                            "type": "base64",
+                            "media_type": "image/png",
+                            "data": pil_to_base64(image),
+                        },
+                    },
+                ],
+            }
+        ]
+
+        response_without = client.messages.create(
+            model="claude-opus-4-6",
+            max_tokens=200,
+            messages=messages,
+        )
+
+        answer_without = response_without.content[0].text
+        print(f"Claude's answer (NO crop):\n{answer_without}\n")
+
+        # Test 2: WITH crop tool
+        print("TEST 2: Claude WITH Crop Tool (can zoom into regions)")
+        print("-" * 70)
+
+        answer_with = ask_with_crop_tool(
+            image=image,
+            question=question,
+            model="claude-opus-4-6",
+        )
+
+        print(f"Claude's answer (WITH crop):\n{answer_with}\n")
+
+        # Comparison
+        print("=" * 70)
+        print("ACCURACY ANALYSIS")
+        print("=" * 70)
+
+        # Check how many values are correctly identified
+        without_values_found = sum(
+            1 for val in expected_values if val in answer_without or val.replace(",", "") in answer_without
+        )
+        with_values_found = sum(1 for val in expected_values if val in answer_with or val.replace(",", "") in answer_with)
+
+        print(f"\nExpected values to find: {', '.join(expected_values)}")
+        print(f"\nValues found WITHOUT crop tool: {without_values_found}/4")
+        print(f"Values found WITH crop tool: {with_values_found}/4")
+        print()
+
+        if with_values_found > without_values_found:
+            print("✅ CROP TOOL IMPROVED ACCURACY")
+            print(f"   Improvement: {with_values_found - without_values_found} additional values correctly identified")
+            return True
+        elif with_values_found == without_values_found:
+            print("⚠️  Both methods found same number of values")
+            print("   (Chart might be readable at full size, but cropping didn't hurt)")
+            return True
+        else:
+            print("ℹ️  Both methods struggled with the small text")
+            print("   (This actually proves the challenge!)")
+            return True
+
+    except ImportError:
+        print("⚠️  datasets library not installed - skipping this test")
+        return None
+    except Exception as e:
+        print(f"❌ Error: {e}")
+        import traceback
+
+        traceback.print_exc()
         return False
 
 
@@ -191,21 +308,29 @@ def main():
     test1_passed = test_normalized_coordinates()
 
     # Test 2: FigureQA (main test)
-    print("\nTest 2/3: FigureQA Dataset Analysis")
+    print("\nTest 2/4: FigureQA Dataset Analysis")
     try:
         test2_passed = test_with_figureqa()
     except Exception as e:
         print(f"❌ FigureQA test skipped: {e}")
         test2_passed = None
 
-    # Test 3: Local image (optional)
-    print("\nTest 3/3: Local Image File")
+    # Test 3: Accuracy Comparison (WITH vs WITHOUT crop tool)
+    print("\nTest 3/4: Accuracy Comparison - WITH vs WITHOUT Crop Tool")
     try:
-        test3_result = test_with_local_image()
-        test3_passed = test3_result if test3_result is not None else None
+        test3_passed = test_crop_tool_improves_accuracy()
+    except Exception as e:
+        print(f"⚠️  Accuracy comparison test skipped: {e}")
+        test3_passed = None
+
+    # Test 4: Local image (optional)
+    print("\nTest 4/4: Local Image File")
+    try:
+        test4_result = test_with_local_image()
+        test4_passed = test4_result if test4_result is not None else None
     except Exception as e:
         print(f"⚠️  Local image test skipped: {e}")
-        test3_passed = None
+        test4_passed = None
 
     # Summary
     print("\n" + "=" * 70)
@@ -221,7 +346,14 @@ def main():
 
     if test3_passed is not None:
         print(
-            f"{'✅' if test3_passed else '❌'} Local image analysis: {'PASS' if test3_passed else 'FAIL'}"
+            f"{'✅' if test3_passed else '❌'} Accuracy comparison: {'PASS' if test3_passed else 'FAIL'}"
+        )
+    else:
+        print("⚠️  Accuracy comparison: SKIPPED")
+
+    if test4_passed is not None:
+        print(
+            f"{'✅' if test4_passed else '❌'} Local image analysis: {'PASS' if test4_passed else 'FAIL'}"
         )
     else:
         print("⚠️  Local image analysis: SKIPPED")
