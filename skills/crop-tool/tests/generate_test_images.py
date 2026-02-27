@@ -200,48 +200,65 @@ def generate_technical_diagram():
 
 
 def generate_challenging_chart():
-    """Generate a chart with small text - intentionally hard to read without cropping."""
-    img = Image.new("RGB", (900, 600), color="white")
+    """Generate a chart where cropping reveals details that are hard to read at full size.
+
+    This is the key test: full image is readable but IMPRECISE,
+    cropped legend is PRECISE and ACCURATE.
+    """
+    img = Image.new("RGB", (1000, 600), color="white")
     draw = ImageDraw.Draw(img)
 
-    # Title
-    draw.text((250, 20), "Revenue Analysis - Q1-Q4 2024", fill="black")
+    # Title (large, readable)
+    draw.text((300, 20), "Revenue Analysis - Q1-Q4 2024", fill="black")
 
-    # Draw bars with small labels
+    # Draw bars (large, clearly readable)
     data = [("Q1", 125), ("Q2", 250), ("Q3", 187), ("Q4", 312)]
 
     for i, (quarter, value) in enumerate(data):
-        x = 80 + i * 180
+        x = 80 + i * 170
         height = value * 1.2
 
-        # Bar
+        # Bar (large and clear)
         draw.rectangle([(x, 450 - height), (x + 120, 450)], fill="steelblue", outline="black", width=2)
 
-        # Small quarter label (hard to read)
-        draw.text((x + 30, 460), quarter, fill="darkgray")
+        # Quarter label (readable)
+        draw.text((x + 35, 460), quarter, fill="black")
 
-    # Small legend text - very hard to read without cropping
-    legend_x = 600
-    legend_y = 100
-    draw.text((legend_x, legend_y), "Values (hard to read at this size):", fill="black")
+    # LEGEND - Small text that's readable but requires careful reading
+    # Without cropping: Hard to read precisely, easy to make errors
+    # With cropping: Crystal clear and accurate
+    legend_x = 650
+    legend_y = 80
 
-    small_text = [
-        "Q1: $125,000",
-        "Q2: $250,000",
-        "Q3: $187,500",
-        "Q4: $312,000",
-        "",
-        "Total: $874,500",
-        "Growth: +23.5%",
+    # Heading
+    draw.text((legend_x, legend_y), "Legend (small text - easy to misread):", fill="black")
+
+    # Legend items in SMALL but readable font (this is key!)
+    legend_items = [
+        ("Q1", "$125K"),
+        ("Q2", "$250K"),
+        ("Q3", "$187.5K"),
+        ("Q4", "$312K"),
     ]
 
-    for i, text in enumerate(small_text):
-        # Very small, gray text
-        draw.text((legend_x, legend_y + 30 + i * 18), text, fill="gray")
+    y_offset = legend_y + 35
+    for quarter, value in legend_items:
+        # Small but readable text - hard to read accurately at full resolution
+        text = f"{quarter}: {value}"
+        draw.text((legend_x, y_offset), text, fill="darkslategray")
+        y_offset += 25
 
-    # Add axis label
-    draw.text((300, 520), "Quarter", fill="black")
-    draw.text((20, 200), "Revenue ($K)", fill="black")
+    # Add some additional info below
+    draw.text((legend_x, legend_y + 150), "Total: $874.5K", fill="darkslategray")
+    draw.text((legend_x, legend_y + 175), "Growth: +23.5%", fill="darkslategray")
+
+    # Axis labels (normal readable size)
+    draw.text((350, 530), "Quarter", fill="black")
+    draw.text((30, 200), "Revenue ($K)", fill="black")
+
+    # Add subtle grid lines to make reading harder
+    for i in range(50, 451, 50):
+        draw.line([(50, i), (550, i)], fill="lightgray", width=1)
 
     test_images_dir = create_test_images_dir()
     img.save(test_images_dir / "challenging_chart.png")
