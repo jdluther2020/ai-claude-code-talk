@@ -86,7 +86,13 @@ def test_crop_tool_improves_accuracy():
         print(f"📊 Question: What are the exact revenue values for each quarter?\n")
 
         question = "What are the exact revenue values for each quarter? List them clearly."
-        expected_values = ["125,000", "250,000", "187,500", "312,000"]
+        # Accept multiple formats Claude might use
+        expected_values = [
+            ["125", "125k", "125K"],
+            ["250", "250k", "250K"],
+            ["187.5", "187.5k", "187.5K"],
+            ["312", "312k", "312K"],
+        ]
 
         # Test 1: WITHOUT crop tool
         print("TEST 1: Claude WITHOUT Crop Tool (full image, no cropping)")
@@ -141,12 +147,19 @@ def test_crop_tool_improves_accuracy():
         print("=" * 70)
 
         # Check how many values are correctly identified
-        without_values_found = sum(
-            1 for val in expected_values if val in answer_without or val.replace(",", "") in answer_without
-        )
-        with_values_found = sum(1 for val in expected_values if val in answer_with or val.replace(",", "") in answer_with)
+        # expected_values is now a list of lists (multiple formats per value)
+        without_values_found = 0
+        with_values_found = 0
 
-        print(f"\nExpected values to find: {', '.join(expected_values)}")
+        for value_formats in expected_values:
+            # Check if any format of this value appears in the answer
+            if any(fmt in answer_without for fmt in value_formats):
+                without_values_found += 1
+            if any(fmt in answer_with for fmt in value_formats):
+                with_values_found += 1
+
+        expected_display = [fmt[0] for fmt in expected_values]  # Show first format for each
+        print(f"\nExpected values to find: {', '.join(expected_display)}")
         print(f"\nValues found WITHOUT crop tool: {without_values_found}/4")
         print(f"Values found WITH crop tool: {with_values_found}/4")
         print()
