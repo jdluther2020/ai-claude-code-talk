@@ -47,7 +47,7 @@ def test_with_figureqa():
         answer = ask_with_crop_tool(
             image=image,
             question=question,
-            model="claude-opus-4-6",
+            model="claude-haiku-4-5-20251001",
         )
 
         print("-" * 70)
@@ -115,7 +115,7 @@ def test_crop_tool_improves_accuracy():
         ]
 
         response_without = client.messages.create(
-            model="claude-opus-4-6",
+            model="claude-haiku-4-5-20251001",
             max_tokens=200,
             messages=messages,
         )
@@ -130,7 +130,7 @@ def test_crop_tool_improves_accuracy():
         answer_with = ask_with_crop_tool(
             image=image,
             question=question,
-            model="claude-opus-4-6",
+            model="claude-haiku-4-5-20251001",
         )
 
         print(f"Claude's answer (WITH crop):\n{answer_with}\n")
