@@ -83,12 +83,55 @@ python3 test_crop_tool.py
 tests/
 ├── README.md                    ← You are here
 ├── requirements.txt             ← Python dependencies
-├── test_crop_tool.py            ← Main test suite
-├── fixtures/                    ← Test data
-│   ├── sample_chart.png         ← Optional test image
-│   └── README.md                ← Fixture documentation
-└── venv/                        ← Virtual environment (created by pip)
+├── .gitignore                   ← Excludes venv, test_images
+├── test_crop_local.py           ← Local tests (generates images on-the-fly)
+├── test_crop_tool.py            ← Claude integration tests
+├── generate_test_images.py      ← Image generator utility
+├── test_images/                 ← GENERATED (not in git)
+│   ├── bar_chart.png            ← Auto-generated when tests run
+│   ├── pie_chart.png            ← Auto-generated when tests run
+│   ├── table_document.png       ← Auto-generated when tests run
+│   └── technical_diagram.png    ← Auto-generated when tests run
+├── fixtures/                    ← For custom test images (optional)
+│   ├── .gitkeep                 ← Keeps folder in git
+│   └── README.md                ← How to add custom images
+├── venv/                        ← Virtual environment (created by pip, not in git)
+└── __pycache__/                 ← Python cache (not in git)
 ```
+
+**Key Point:** `test_images/` is **generated at runtime** and **NOT checked into git**.
+- First run: Tests generate all 4 images
+- Subsequent runs: Tests regenerate them (overwrites)
+- This keeps the repo clean and lightweight
+
+## How Test Images Work
+
+**Important:** Test images are **generated on-the-fly**, NOT stored in git.
+
+### First Run
+```bash
+python3 test_crop_local.py
+```
+→ Calls `generate_test_images.py` → Creates `test_images/` folder with 4 PNGs
+
+### Subsequent Runs
+```bash
+python3 test_crop_local.py
+```
+→ Regenerates images in `test_images/` (overwrites previous)
+
+### For Your PR
+- ✅ Don't commit `test_images/` folder
+- ✅ It's already in `.gitignore`
+- ✅ Reviewers will see images auto-generated when they run tests
+
+This approach:
+- Keeps repo lightweight
+- No large image files
+- Tests are self-contained
+- Perfect for public contribution ✅
+
+---
 
 ## Running Individual Tests
 
