@@ -191,8 +191,10 @@ def test_accuracy_improvement():
         expected_values = ["125", "250", "187.5", "312"]
 
         # TEST 1: WITHOUT crop tool (full image only)
+        print("\n" + "=" * 70)
         print("TEST 1: Claude WITHOUT Crop Tool (full image, no cropping)")
-        print("-" * 70)
+        print("=" * 70)
+        print("No tool calls - direct image analysis only\n")
 
         messages = [
             {
@@ -221,11 +223,13 @@ def test_accuracy_improvement():
         )
 
         answer_without = response_without.content[0].text
-        print(f"Claude's answer (NO crop):\n{answer_without}\n")
+        print(f"\nClaude's answer (NO crop):\n{answer_without}\n")
 
         # TEST 2: WITH crop tool
+        print("\n" + "=" * 70)
         print("TEST 2: Claude WITH Crop Tool (can zoom into regions)")
-        print("-" * 70)
+        print("=" * 70)
+        print("Watch for [CROP TOOL USED] messages showing crop operations:\n")
 
         answer_with = ask_with_crop_tool(
             image=image,
@@ -233,11 +237,11 @@ def test_accuracy_improvement():
             model="claude-haiku-4-5-20251001",
         )
 
-        print(f"Claude's answer (WITH crop):\n{answer_with}\n")
+        print(f"\nClaude's answer (WITH crop):\n{answer_with}\n")
 
         # COMPARISON
-        print("=" * 70)
-        print("ACCURACY ANALYSIS")
+        print("\n" + "=" * 70)
+        print("RESULTS & ACCURACY ANALYSIS")
         print("=" * 70)
 
         # Count how many expected values appear in each answer
