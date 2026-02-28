@@ -72,17 +72,49 @@ def test_crop_tool_improves_accuracy():
     print("Using deliberately challenging chart with small text...\n")
 
     try:
-        from generate_test_images import generate_challenging_chart
         from pathlib import Path
+        from generate_test_images import generate_challenging_chart
 
         client = Anthropic()
 
-        # Generate challenging test image
-        print("Generating challenging chart with small text...")
-        chart_path = generate_challenging_chart()
+        # Handle test images: create, use existing, or abort
+        test_images_dir = Path(__file__).parent / "test_images"
+        chart_path = test_images_dir / "challenging_chart.png"
+        images_exist = chart_path.exists()
+
+        if images_exist:
+            print("✅ Test images found in: test_images/")
+            while True:
+                choice = input("\nOptions:\n  • Use existing images (fast) [1]\n  • Regenerate images [2]\n  • Abort [3]\n\nChoice (1-3): ").strip()
+                if choice == "1":
+                    print("Using existing test images...")
+                    break
+                elif choice == "2":
+                    print("Regenerating test images...")
+                    chart_path = generate_challenging_chart()
+                    break
+                elif choice == "3":
+                    print("❌ Test aborted by user")
+                    return None
+                else:
+                    print("Invalid choice. Try again.")
+        else:
+            print("⚠️  Test images not found in: test_images/")
+            while True:
+                choice = input("\nOptions:\n  • Generate images now [1]\n  • Abort [2]\n\nChoice (1-2): ").strip()
+                if choice == "1":
+                    print("Generating test images...")
+                    chart_path = generate_challenging_chart()
+                    break
+                elif choice == "2":
+                    print("❌ Test aborted by user")
+                    return None
+                else:
+                    print("Invalid choice. Try again.")
+
         image = Image.open(chart_path)
 
-        print(f"✅ Generated test chart: {chart_path}")
+        print(f"✅ Using test chart: {chart_path}")
         print(f"📊 Question: What are the exact revenue values for each quarter?\n")
 
         question = "What are the exact revenue values for each quarter? List them clearly."
