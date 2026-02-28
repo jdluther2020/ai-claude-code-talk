@@ -65,31 +65,26 @@ def test_with_local_images():
                 "filename": "bar_chart.png",
                 "description": "Bar Chart - Quarterly Sales",
                 "question": "What are the approximate sales values for each quarter? List them.",
-                "crop_regions": [(0.0, 0.8, 1.0, 1.0)],
             },
             {
                 "filename": "pie_chart.png",
                 "description": "Pie Chart - Market Share",
                 "question": "What are the market share percentages for each product? Identify the largest segment.",
-                "crop_regions": [(0.5, 0.0, 1.0, 0.5)],
             },
             {
                 "filename": "table_document.png",
                 "description": "Table Document - Sales Report",
                 "question": "What are the product names and their revenue values? List them clearly.",
-                "crop_regions": [(0.0, 0.15, 1.0, 0.35)],
             },
             {
                 "filename": "technical_diagram.png",
                 "description": "Technical Diagram - System Architecture",
                 "question": "What are the main components in this system and how are they connected?",
-                "crop_regions": [(0.25, 0.15, 0.75, 0.45)],
             },
             {
                 "filename": "challenging_chart.png",
                 "description": "Chart with Small Text - Revenue Analysis",
                 "question": "What are the exact revenue values for Q1, Q2, Q3, and Q4? Read the legend carefully.",
-                "crop_regions": [(0.65, 0.08, 1.0, 0.3)],
             },
         ]
 
