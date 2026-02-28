@@ -10,7 +10,7 @@ npx skills add jdluther2020/ai-claude-code-talk --skill crop-tool
 
 ## What It Does
 
-The crop tool gives Claude the ability to "zoom into" specific regions of images, dramatically improving accuracy on tasks involving:
+Inspired by [Claude Prompting best practices - Improved vision capabilities](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#minimizing-hallucinations-in-agentic-coding), this improved version of crop tool gives Claude the ability to "zoom into" specific regions of images (crop and expand), dramatically improving accuracy on tasks involving:
 
 - **Charts** — Read legend text, compare bar heights, identify values
 - **Documents** — Extract data from tables, read small text
@@ -314,6 +314,7 @@ All feedback and pull requests welcome!
 ## Resources
 
 - [Claude Cookbook: Crop Tool](https://platform.claude.com/cookbook/multimodal-crop-tool)
+  - Linked from [Claude Prompting best practices - Improved vision capabilities](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#minimizing-hallucinations-in-agentic-coding)
 - [Best Practices: Vision](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices)
 - [Claude API Docs](https://platform.claude.com/docs)
 
