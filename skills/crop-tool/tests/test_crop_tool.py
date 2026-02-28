@@ -85,7 +85,7 @@ def test_with_local_images():
             {
                 "filename": "challenging_chart.png",
                 "description": "Chart with Small Text - Revenue Analysis",
-                "question": "What are the exact revenue values for Q1, Q2, Q3, and Q4? Read the legend carefully.",
+                "question": "What are the exact revenue values for Q1, Q2, Q3, and Q4? Read the legend carefully. And read the text at the bottom box of Q3.",
             },
         ]
 
