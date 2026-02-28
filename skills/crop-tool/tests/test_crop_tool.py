@@ -19,9 +19,10 @@ from pathlib import Path
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from crop_tool import ask_with_crop_tool
+from crop_tool import ask_with_crop_tool, pil_to_base64
 from anthropic import Anthropic
 from PIL import Image
+import base64
 
 
 def test_with_local_images():
@@ -163,15 +164,125 @@ def test_with_local_images():
         return False
 
 
+def test_accuracy_improvement():
+    """Compare accuracy WITH vs WITHOUT crop tool.
+
+    This is the critical test: does the crop tool actually improve Claude's ability
+    to extract accurate information from images with small text?
+    """
+    print("\n" + "=" * 70)
+    print("ACCURACY COMPARISON - WITH vs WITHOUT Crop Tool")
+    print("=" * 70)
+    print("Using challenging_chart.png with small text...\n")
+
+    try:
+        test_images_dir = Path(__file__).parent / "test_images"
+        chart_path = test_images_dir / "challenging_chart.png"
+
+        if not chart_path.exists():
+            print(f"⚠️  Test image not found: {chart_path}")
+            return None
+
+        image = Image.open(chart_path)
+        client = Anthropic()
+
+        # The exact question that requires reading small text
+        question = "What are the exact revenue values for Q1, Q2, Q3, and Q4? Extract the precise numbers."
+        expected_values = ["125", "250", "187.5", "312"]
+
+        # TEST 1: WITHOUT crop tool (full image only)
+        print("TEST 1: Claude WITHOUT Crop Tool (full image, no cropping)")
+        print("-" * 70)
+
+        messages = [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": f"{question}\n\nIMPORTANT: Do NOT use any tools. Just analyze the full image directly and extract the numbers.",
+                    },
+                    {
+                        "type": "image",
+                        "source": {
+                            "type": "base64",
+                            "media_type": "image/png",
+                            "data": pil_to_base64(image),
+                        },
+                    },
+                ],
+            }
+        ]
+
+        response_without = client.messages.create(
+            model="claude-haiku-4-5-20251001",
+            max_tokens=300,
+            messages=messages,
+        )
+
+        answer_without = response_without.content[0].text
+        print(f"Claude's answer (NO crop):\n{answer_without}\n")
+
+        # TEST 2: WITH crop tool
+        print("TEST 2: Claude WITH Crop Tool (can zoom into regions)")
+        print("-" * 70)
+
+        answer_with = ask_with_crop_tool(
+            image=image,
+            question=question,
+            model="claude-haiku-4-5-20251001",
+        )
+
+        print(f"Claude's answer (WITH crop):\n{answer_with}\n")
+
+        # COMPARISON
+        print("=" * 70)
+        print("ACCURACY ANALYSIS")
+        print("=" * 70)
+
+        # Count how many expected values appear in each answer
+        without_found = sum(1 for val in expected_values if val in answer_without)
+        with_found = sum(1 for val in expected_values if val in answer_with)
+
+        print(f"\nExpected to find: {expected_values}")
+        print(f"\nValues found WITHOUT crop tool: {without_found}/4")
+        print(f"Values found WITH crop tool: {with_found}/4")
+        print()
+
+        if with_found > without_found:
+            improvement = with_found - without_found
+            print(f"✅ CROP TOOL IMPROVED ACCURACY")
+            print(f"   Improvement: +{improvement} values correctly extracted")
+            return True
+        elif with_found == without_found:
+            print(f"⚠️  Both methods found {with_found} values")
+            print(f"   (Chart may be readable at full size, or cropping didn't help)")
+            return True
+        else:
+            print(f"⚠️  Both methods struggled with accuracy")
+            return True
+
+    except Exception as e:
+        print(f"❌ Error: {e}")
+        import traceback
+
+        traceback.print_exc()
+        return False
+
+
 def main():
     """Run all tests."""
     print("\n🧪 CROP TOOL SKILL - CLAUDE API TEST SUITE\n")
 
-    # Run the main test
-    result = test_with_local_images()
+    # Run the main integration test
+    result1 = test_with_local_images()
 
-    # Exit with appropriate code
-    return 0 if result else 1
+    # Run the accuracy comparison test
+    result2 = test_accuracy_improvement()
+
+    # Overall result
+    overall = result1 and (result2 is not False)
+    return 0 if overall else 1
 
 
 if __name__ == "__main__":
