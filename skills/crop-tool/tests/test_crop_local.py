@@ -108,7 +108,7 @@ def test_with_generated_images():
     if images_exist:
         print("\n✅ Test images found in: test_images/")
         while True:
-            choice = input("\nOptions:\n  [1] Use existing images (fast)\n  [2] Regenerate images\n  [3] Abort\n\nChoice (1-3): ").strip()
+            choice = input("\nOptions:\n  • Use existing images (fast) [1]\n  • Regenerate images [2]\n  • Abort [3]\n\nChoice (1-3): ").strip()
             if choice == "1":
                 print("Using existing test images...")
                 break
@@ -124,7 +124,7 @@ def test_with_generated_images():
     else:
         print("\n⚠️  Test images not found in: test_images/")
         while True:
-            choice = input("\nOptions:\n  [1] Generate images now\n  [2] Abort\n\nChoice (1-2): ").strip()
+            choice = input("\nOptions:\n  • Generate images now [1]\n  • Abort [2]\n\nChoice (1-2): ").strip()
             if choice == "1":
                 print("Generating test images...")
                 generate_all_test_images()
