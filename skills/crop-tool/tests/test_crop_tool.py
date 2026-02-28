@@ -187,7 +187,7 @@ def test_accuracy_improvement():
         client = Anthropic()
 
         # The exact question that requires reading small text
-        question = "What are the exact revenue values for Q1, Q2, Q3, and Q4? Extract the precise numbers."
+        question = "What are the exact revenue values for Q1, Q2, Q3, and Q4? Read the legend carefully. And read the text at the bottom box of Q3."
         expected_values = ["125", "250", "187.5", "312"]
 
         # TEST 1: WITHOUT crop tool (full image only)
