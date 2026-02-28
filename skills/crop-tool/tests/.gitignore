@@ -49,5 +49,4 @@ test-results/
 *.mp4
 *.mov
 
-# Generated test images
-test_images/
+# Note: test_images/ is checked in for reproducible tests

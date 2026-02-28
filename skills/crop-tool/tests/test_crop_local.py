@@ -101,11 +101,39 @@ def test_with_generated_images():
     print("TEST 4: Generated Test Images")
     print("=" * 70)
 
-    # Generate test images if they don't exist
+    # Handle test images: create, use existing, or abort
     test_images_dir = Path(__file__).parent / "test_images"
-    if not test_images_dir.exists():
-        print("Generating test images...")
-        generate_all_test_images()
+    images_exist = test_images_dir.exists() and len(list(test_images_dir.glob("*.png"))) >= 5
+
+    if images_exist:
+        print("\n✅ Test images found in: test_images/")
+        while True:
+            choice = input("\nOptions:\n  [1] Use existing images (fast)\n  [2] Regenerate images\n  [3] Abort\n\nChoice (1-3): ").strip()
+            if choice == "1":
+                print("Using existing test images...")
+                break
+            elif choice == "2":
+                print("Regenerating test images...")
+                generate_all_test_images()
+                break
+            elif choice == "3":
+                print("❌ Test aborted by user")
+                return
+            else:
+                print("Invalid choice. Try again.")
+    else:
+        print("\n⚠️  Test images not found in: test_images/")
+        while True:
+            choice = input("\nOptions:\n  [1] Generate images now\n  [2] Abort\n\nChoice (1-2): ").strip()
+            if choice == "1":
+                print("Generating test images...")
+                generate_all_test_images()
+                break
+            elif choice == "2":
+                print("❌ Test aborted by user")
+                return
+            else:
+                print("Invalid choice. Try again.")
 
     test_files = {
         "bar_chart.png": [((0.0, 0.8, 1.0, 1.0), "bottom labels")],  # Test x-axis
