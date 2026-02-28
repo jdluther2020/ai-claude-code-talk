@@ -109,6 +109,10 @@ def handle_crop(
     # Perform crop
     cropped = image.crop((x1_px, y1_px, x2_px, y2_px))
 
+    # Log crop operation
+    crop_info = f"[CROP TOOL USED] Region: ({x1:.2f}, {y1:.2f}) to ({x2:.2f}, {y2:.2f}) → {cropped.width}×{cropped.height}px"
+    print(crop_info)
+
     # Return result as text + image
     return [
         {
@@ -190,6 +194,9 @@ def ask_with_crop_tool(
 
     # Agentic loop
     iteration = 0
+    crops_used = 0
+    print(f"\n[ASK_WITH_CROP_TOOL] Starting analysis with crop tool...")
+
     while iteration < max_iterations:
         iteration += 1
 
@@ -205,6 +212,7 @@ def ask_with_crop_tool(
         # If Claude is done (no more tool use), return final answer
         if response.stop_reason != "tool_use":
             # Extract final text response
+            print(f"[ASK_WITH_CROP_TOOL] Analysis complete. Total crops used: {crops_used}")
             for block in response.content:
                 if hasattr(block, "text"):
                     return block.text
@@ -217,6 +225,7 @@ def ask_with_crop_tool(
         for block in response.content:
             if block.type == "tool_use":
                 # Execute the crop
+                crops_used += 1
                 result = handle_crop(image, **block.input)
                 tool_results.append(
                     {"type": "tool_result", "tool_use_id": block.id, "content": result}
