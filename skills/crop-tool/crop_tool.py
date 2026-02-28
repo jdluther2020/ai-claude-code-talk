@@ -12,6 +12,7 @@ from typing import Union, List, Dict, Any
 
 from anthropic import Anthropic
 from PIL import Image as PILImage
+from PIL import ImageEnhance
 
 
 # Tool Definition
@@ -60,6 +61,37 @@ def pil_to_base64(image: PILImage.Image) -> str:
     return base64.standard_b64encode(buffer.getvalue()).decode("utf-8")
 
 
+def enhance_image(image: PILImage.Image, upscale: int = 2, contrast: float = 1.3, sharpness: float = 1.2) -> PILImage.Image:
+    """
+    Enhance image for better text readability.
+
+    Args:
+        image: PIL Image to enhance
+        upscale: Upscaling factor (default 2x)
+        contrast: Contrast enhancement (1.0 = no change, >1.0 = more contrast)
+        sharpness: Sharpness enhancement (1.0 = no change, >1.0 = more sharp)
+
+    Returns:
+        Enhanced PIL Image
+    """
+    # Upscale for better text visibility
+    if upscale > 1:
+        new_size = (image.width * upscale, image.height * upscale)
+        image = image.resize(new_size, PILImage.Resampling.LANCZOS)
+
+    # Enhance contrast
+    if contrast != 1.0:
+        enhancer = ImageEnhance.Contrast(image)
+        image = enhancer.enhance(contrast)
+
+    # Enhance sharpness
+    if sharpness != 1.0:
+        enhancer = ImageEnhance.Sharpness(image)
+        image = enhancer.enhance(sharpness)
+
+    return image
+
+
 def get_pil_image(img: Union[PILImage.Image, Dict[str, Any]]) -> PILImage.Image:
     """Convert various image formats to PIL Image."""
     if isinstance(img, PILImage.Image):
@@ -72,7 +104,7 @@ def get_pil_image(img: Union[PILImage.Image, Dict[str, Any]]) -> PILImage.Image:
 
 
 def handle_crop(
-    image: PILImage.Image, x1: float, y1: float, x2: float, y2: float
+    image: PILImage.Image, x1: float, y1: float, x2: float, y2: float, enhance: bool = True
 ) -> List[Dict[str, Any]]:
     """
     Execute image crop with normalized coordinates.
@@ -83,6 +115,7 @@ def handle_crop(
         y1: Top edge (0-1)
         x2: Right edge (0-1)
         y2: Bottom edge (0-1)
+        enhance: Whether to enhance cropped image for better text readability (default True)
 
     Returns:
         List of tool result content blocks (text confirmation + cropped image)
@@ -109,8 +142,14 @@ def handle_crop(
     # Perform crop
     cropped = image.crop((x1_px, y1_px, x2_px, y2_px))
 
+    # Enhance cropped image for better text readability
+    if enhance:
+        cropped = enhance_image(cropped, upscale=2, contrast=1.4, sharpness=1.3)
+        crop_info = f"[CROP TOOL USED] Region: ({x1:.2f}, {y1:.2f}) to ({x2:.2f}, {y2:.2f}) → {cropped.width}×{cropped.height}px (enhanced 2x + contrast)"
+    else:
+        crop_info = f"[CROP TOOL USED] Region: ({x1:.2f}, {y1:.2f}) to ({x2:.2f}, {y2:.2f}) → {cropped.width}×{cropped.height}px"
+
     # Log crop operation
-    crop_info = f"[CROP TOOL USED] Region: ({x1:.2f}, {y1:.2f}) to ({x2:.2f}, {y2:.2f}) → {cropped.width}×{cropped.height}px"
     print(crop_info)
 
     # Return result as text + image
