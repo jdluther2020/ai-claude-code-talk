@@ -45,7 +45,7 @@ This makes even small, faint text in the original image readable and analyzable.
 ## Installation
 
 ```bash
-npx skills add jdluther2020/ai-claude-code-talk --skill crop-tool
+npx skills add https://github.com/jdluther2020/ai-claude-code-talk --skill crop-tool
 ```
 
 ---
