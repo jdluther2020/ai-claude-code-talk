@@ -39,16 +39,13 @@ npx skills add jdluther2020/ai-claude-code-talk --skill crop-tool
 
 ## Why It Matters
 
-Claude's vision gets significantly better when it can zoom in on details:
+Claude's vision gets significantly better when it can zoom in on details. The [crop-tool technique](https://platform.claude.com/cookbook/multimodal-crop-tool) documented by Anthropic improves accuracy on detail-heavy vision tasks. Our enhanced version adds automatic upscaling (2x), contrast enhancement (1.4x), and sharpening (1.3x), which provides improvements beyond the baseline crop functionality.
 
-| Task | Accuracy (Full Image) | Accuracy (With Crop Tool) | Improvement |
-|------|----------------------|--------------------------|-------------|
-| Small text extraction | 70% | 95%+ | +25% |
-| Chart value comparison | 75% | 90%+ | +15% |
-| Table data extraction | 65% | 88%+ | +23% |
-| Technical diagram analysis | 70% | 92%+ | +22% |
-
-**Overall improvement:** Based on [Anthropic research](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices), ~25% accuracy boost on detail-heavy tasks. Our enhanced version with automatic upscaling and contrast boost provides additional benefits.
+Common use cases where cropping helps:
+- **Small text extraction** — Read legends, labels, and fine print more accurately
+- **Chart value comparison** — Compare values across charts and diagrams with precision
+- **Table data extraction** — Extract structured data from tables and reports
+- **Technical diagram analysis** — Identify fine component details and connections
 
 ---
 
@@ -386,4 +383,4 @@ This skill is designed for contribution to the Anthropic ecosystem. Improvements
 **Last Updated:** February 27, 2026
 **Status:** Production ready
 **Recommended Model:** Claude Opus 4.5+
-**Benefits:** Based on [Anthropic research](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices), ~25% accuracy improvement on detail-heavy tasks with additional gains from automatic enhancement
+**Benefits:** The [Anthropic crop-tool technique](https://platform.claude.com/cookbook/multimodal-crop-tool) improves accuracy on detail-heavy tasks. Our enhanced version with automatic image processing provides additional gains beyond the baseline technique.
