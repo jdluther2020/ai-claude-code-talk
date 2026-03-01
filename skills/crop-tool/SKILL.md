@@ -48,7 +48,7 @@ Claude's vision gets significantly better when it can zoom in on details:
 | Table data extraction | 65% | 88%+ | +23% |
 | Technical diagram analysis | 70% | 92%+ | +22% |
 
-**Overall improvement:** ~25% accuracy boost on detail-heavy tasks
+**Overall improvement:** Based on Anthropic research, ~25% accuracy boost on detail-heavy tasks. Our enhanced version with automatic upscaling and contrast boost provides additional benefits.
 
 ---
 
@@ -386,4 +386,4 @@ This skill is designed for contribution to the Anthropic ecosystem. Improvements
 **Last Updated:** February 27, 2026
 **Status:** Production ready
 **Recommended Model:** Claude Opus 4.5+
-**Benefits:** ~25% accuracy improvement on detail-heavy image tasks
+**Benefits:** Based on Anthropic research, ~25% accuracy improvement on detail-heavy tasks with additional gains from automatic enhancement
