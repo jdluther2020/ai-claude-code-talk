@@ -12,6 +12,7 @@ description: Crop specific regions of images for detailed analysis. Enables Clau
 - [Installation](#installation) — How to add crop-tool to Claude Code
 - [Why It Matters—Performance Impact](#why-it-matters--performance-impact) — Benefits and best use cases
 - [What It Does](#what-it-does) — Core functionality and coordinate system
+- [CLI Usage](#cli-usage) — How Claude Code invokes crop_tool.py directly
 - [How to Use This Skill](#how-to-use-this-skill) — Practical scenarios and workflows
 - [Code Examples](#code-examples) — Ready—to—use code patterns
 - [When to Use vs Not Use](#when-to-use-vs-not-use) — Decision guide
@@ -25,6 +26,8 @@ description: Crop specific regions of images for detailed analysis. Enables Clau
 
 ## Release Notes
 
+- **v1.4.0** (2026-03-01) — Added CLI mode for Claude Code: crop + enhance + save to file, no API key required
+- **v1.3.0** (2026-03-01) — Self-healing imports: auto-installs `Pillow`/`anthropic` on first use with macOS Homebrew fallback
 - **v1.2.0** (2026-03-01) — Added stopping condition: report unreadable regions after 2 attempts instead of iterating endlessly
 - **v1.1.0** (2026-02-27) — Added automatic image enhancement (upscale + contrast + sharpen) and improved logging
 - **v1.0.0** (2026-02-15) — Initial release with core crop functionality and normalized coordinates
@@ -95,6 +98,38 @@ Uses normalized coordinates (0-1) independent of image dimensions:
 - **(0.5, 0.5)** = center of image
 
 This allows Claude to specify regions without knowing actual pixel dimensions.
+
+---
+
+## CLI Usage
+
+When used as a Claude Code skill, `crop_tool.py` is invoked as a CLI — no API key required. Claude runs it to crop and enhance a region, then reads the output file with its own built-in vision.
+
+```bash
+python3 crop_tool.py <image_path> <x1> <y1> <x2> <y2> [--output <path>]
+```
+
+**Arguments:**
+- `image_path` — Path to the source image
+- `x1 y1 x2 y2` — Normalized coordinates (0–1) for the crop region
+- `--output` — Output file path (optional; defaults to an auto-generated temp file)
+
+The command prints the output path to stdout. Claude reads that file with its vision to complete the analysis.
+
+**Quadrant shortcuts used by the skill:**
+
+| Quadrant | x1 | y1 | x2 | y2 |
+|----------|----|----|----|----|
+| Q1 (top-left) | 0 | 0 | 0.5 | 0.5 |
+| Q2 (top-right) | 0.5 | 0 | 1 | 0.5 |
+| Q3 (bottom-left) | 0 | 0.5 | 0.5 | 1 |
+| Q4 (bottom-right) | 0.5 | 0.5 | 1 | 1 |
+
+**Example:**
+```bash
+python3 crop_tool.py chart.png 0 0.5 0.5 1 --output /tmp/q3.png
+# → /tmp/q3.png  (1000×600px, enhanced 2x + contrast)
+```
 
 ---
 
@@ -263,7 +298,7 @@ This skill is designed for community contribution to the Anthropic ecosystem.
 
 ---
 
-**Last Updated:** February 27, 2026
+**Last Updated:** March 1, 2026
 **Status:** Production ready
 **Recommended Model:** Claude Opus 4.5+
 **Benefits:** The [Anthropic crop-tool technique](https://platform.claude.com/cookbook/multimodal-crop-tool) improves accuracy on detail-heavy tasks. Our enhanced version with automatic image processing provides additional gains beyond the baseline technique.
