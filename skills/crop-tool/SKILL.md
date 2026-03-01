@@ -270,9 +270,14 @@ Works well with:
 
 ## Feedback & Improvements
 
-Found a case where crop tool helped significantly? Or suggestions for enhancement?
+Have ideas for improvements? Found a use case where crop tool excels? We'd love your contributions!
 
-This skill is designed for contribution to the Anthropic ecosystem. Improvements and feedback are welcome.
+**How to contribute:**
+- Open an issue for bugs or feature requests
+- Submit a PR with enhancements
+- Share your use cases and real—world examples
+
+This skill is designed for community contribution to the Anthropic ecosystem.
 
 ---
 
