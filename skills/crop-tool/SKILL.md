@@ -16,7 +16,6 @@ description: Crop specific regions of images for detailed analysis. Enables Clau
 - [Technical Details](#technical-details) — Tool specification and implementation
 - [When to Use vs Not Use](#when-to-use-vs-not-use) — Decision guide
 - [Tips for Best Results](#tips-for-best-results) — Prompt strategies
-- [Common Usage Patterns](#common-usage-patterns) — Real-world workflows
 - [FAQ](#faq) — Common questions answered
 - [Integration with Other Tools](#integration-with-other-tools) — Complementary skills
 - [Feedback & Improvements](#feedback--improvements) — Contribute ideas
@@ -134,6 +133,24 @@ Claude will:
 3. Extract precise values
 4. Organize results
 
+### Pattern 1: Guided Exploration
+```
+User: "Analyze this chart. Start by examining the legend closely."
+Claude: Crops legend region, reads values, then analyzes chart
+```
+
+### Pattern 2: Verification
+```
+User: "Extract these values. Show me the exact regions you examined."
+Claude: Crops relevant regions, shows them, reports values with source
+```
+
+### Pattern 3: Multi-step Analysis
+```
+User: "Compare metrics across all three sections of this report."
+Claude: Crops each section, analyzes, synthesizes comparison
+```
+
 ---
 
 ## Technical Details
@@ -231,28 +248,6 @@ Claude will:
 5. **Verify results**
    - ✅ Ask Claude to show which regions it cropped
    - ❌ Trust the result without verification
-
----
-
-## Common Usage Patterns
-
-### Pattern 1: Guided Exploration
-```
-User: "Analyze this chart. Start by examining the legend closely."
-Claude: Crops legend region, reads values, then analyzes chart
-```
-
-### Pattern 2: Verification
-```
-User: "Extract these values. Show me the exact regions you examined."
-Claude: Crops relevant regions, shows them, reports values with source
-```
-
-### Pattern 3: Multi-step Analysis
-```
-User: "Compare metrics across all three sections of this report."
-Claude: Crops each section, analyzes, synthesizes comparison
-```
 
 ---
 
