@@ -43,6 +43,18 @@ This makes even small, faint text in the original image readable and analyzable.
 
 ---
 
+## Prerequisites
+
+Crop-tool uses Python (`Pillow`, `anthropic`) for image processing. **These are installed automatically on first use** — no manual setup needed.
+
+If auto-install fails (e.g., due to permissions or a restricted environment), install manually:
+
+```bash
+pip install Pillow anthropic
+```
+
+---
+
 ## Installation
 
 ```bash

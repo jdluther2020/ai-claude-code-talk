@@ -7,12 +7,21 @@ involving charts, documents, diagrams, and dense images with small details.
 """
 
 import base64
+import subprocess
+import sys
 from io import BytesIO
 from typing import Union, List, Dict, Any
 
-from anthropic import Anthropic
-from PIL import Image as PILImage
-from PIL import ImageEnhance
+try:
+    from anthropic import Anthropic
+    from PIL import Image as PILImage
+    from PIL import ImageEnhance
+except ImportError:
+    print("[crop-tool] Installing required dependencies (Pillow, anthropic)...")
+    subprocess.check_call([sys.executable, "-m", "pip", "install", "Pillow", "anthropic", "-q"])
+    from anthropic import Anthropic
+    from PIL import Image as PILImage
+    from PIL import ImageEnhance
 
 
 # Tool Definition

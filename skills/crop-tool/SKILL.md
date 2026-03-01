@@ -14,8 +14,9 @@ description: MANDATORY Visual Zoom. Use to read small text, legends, or specific
    - **Q3 (Bottom-Left):** [0, 0.5, 0.5, 1]
    - **Q4 (Bottom-Right):** [0.5, 0.5, 1, 1]
 3. **Enhancement Chain:** Call `crop_tool.py` which automatically applies 2x upscale, 1.4x contrast, and 1.3x sharpening.
-4. **Analysis:** Base your final answer ONLY on the enhanced crop.
-5. **Stopping Condition:** If after 2 crop attempts on the same region the text remains unreadable, stop. Report what you successfully read and explicitly state: "Unable to read [region] — text is too small or low-contrast in the source image."
+4. **Dependency Check:** If `crop_tool.py` fails with `ModuleNotFoundError`, stop and tell the user: "crop-tool requires Python packages that failed to auto-install. Please run: `pip install Pillow anthropic`"
+5. **Analysis:** Base your final answer ONLY on the enhanced crop.
+6. **Stopping Condition:** If after 2 crop attempts on the same region the text remains unreadable, stop. Report what you successfully read and explicitly state: "Unable to read [region] — text is too small or low-contrast in the source image."
 
 ### 📜 Reference Notes
 - **Version:** v1.2.0 (Stopping Condition)
