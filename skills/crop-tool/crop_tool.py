@@ -18,7 +18,20 @@ try:
     from PIL import ImageEnhance
 except ImportError:
     print("[crop-tool] Installing required dependencies (Pillow, anthropic)...")
-    subprocess.check_call([sys.executable, "-m", "pip", "install", "Pillow", "anthropic", "-q"])
+    _base_cmd = [sys.executable, "-m", "pip", "install", "Pillow", "anthropic", "-q"]
+    _installed = False
+    for _flags in [[], ["--user"], ["--break-system-packages"]]:
+        try:
+            subprocess.check_call(_base_cmd + _flags, stderr=subprocess.DEVNULL)
+            _installed = True
+            break
+        except subprocess.CalledProcessError:
+            continue
+    if not _installed:
+        raise RuntimeError(
+            "[crop-tool] Auto-install failed. Please run manually:\n"
+            "  pip install Pillow anthropic"
+        )
     from anthropic import Anthropic
     from PIL import Image as PILImage
     from PIL import ImageEnhance
@@ -316,52 +329,36 @@ def analyze_image_with_crops(
     return results
 
 
-# Example usage demonstrating the crop tool
+# CLI: crop and enhance an image region, save to a file, print the output path.
+# Used by Claude Code skill — no API key required.
+#
+# Usage: python3 crop_tool.py <image> <x1> <y1> <x2> <y2> [--output <path>]
+#
+# Example:
+#   python3 crop_tool.py chart.png 0 0.5 0.5 1 --output /tmp/q3.png
 if __name__ == "__main__":
-    # Example: Analyze a chart
-    print("Crop Tool Example\n")
-    print("=" * 50)
-    print("\nTo use the crop tool:\n")
-    print("1. Basic usage:")
-    print(
-        """
-    from crop_tool import ask_with_crop_tool
-    from PIL import Image
+    import argparse
+    import tempfile
 
-    image = Image.open("chart.png")
-    answer = ask_with_crop_tool(
-        image=image,
-        question="What are the exact values shown in the legend?"
+    parser = argparse.ArgumentParser(
+        description="Crop and enhance an image region for Claude Code vision analysis."
     )
-    print(answer)
-    """
-    )
+    parser.add_argument("image", help="Path to the source image")
+    parser.add_argument("x1", type=float, help="Left edge (0-1)")
+    parser.add_argument("y1", type=float, help="Top edge (0-1)")
+    parser.add_argument("x2", type=float, help="Right edge (0-1)")
+    parser.add_argument("y2", type=float, help="Bottom edge (0-1)")
+    parser.add_argument("--output", help="Output file path (default: auto temp file)")
+    args = parser.parse_args()
 
-    print("\n2. Multiple questions:")
-    print(
-        """
-    from crop_tool import analyze_image_with_crops
+    img = PILImage.open(args.image)
+    result_blocks = handle_crop(img, args.x1, args.y1, args.x2, args.y2)
 
-    questions = [
-        "What is the main title?",
-        "What are the axis labels?",
-        "What is the legend?",
-    ]
-    results = analyze_image_with_crops("chart.png", questions)
-    for q, a in results.items():
-        print(f"Q: {q}")
-        print(f"A: {a}\\n")
-    """
-    )
-
-    print("\n3. Advanced - Custom system prompt:")
-    print(
-        """
-    answer = ask_with_crop_tool(
-        image="diagram.png",
-        question="Identify all components",
-        system_prompt="You are a technical expert analyzing system diagrams. "
-                     "Be precise and thorough."
-    )
-    """
-    )
+    for block in result_blocks:
+        if block["type"] == "image":
+            img_bytes = base64.standard_b64decode(block["source"]["data"])
+            out_path = args.output or tempfile.mktemp(suffix=".png", prefix="crop_tool_")
+            with open(out_path, "wb") as f:
+                f.write(img_bytes)
+            print(out_path)
+            break
