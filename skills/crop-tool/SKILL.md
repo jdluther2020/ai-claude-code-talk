@@ -20,13 +20,6 @@ Inspired by [Anthropic's crop tool technique](https://platform.claude.com/cookbo
 
 This makes even small, faint text in the original image readable and analyzable.
 
-**Use this skill when you need to:**
-- Analyze charts and read small text/values in legends
-- Extract data from documents with fine details and small print
-- Compare specific regions in complex images with precision
-- Examine technical diagrams and identify fine component details
-- Process images with multiple focal points requiring detailed examination
-
 ---
 
 ## Installation
@@ -37,15 +30,16 @@ npx skills add jdluther2020/ai-claude-code-talk --skill crop-tool
 
 ---
 
-## Why It Matters
+## Why It Matters--Performance Impact
 
-Claude's vision gets significantly better when it can zoom in on details. The [crop-tool technique](https://platform.claude.com/cookbook/multimodal-crop-tool) documented by Anthropic improves accuracy on detail-heavy vision tasks. Our enhanced version adds automatic upscaling (2x), contrast enhancement (1.4x), and sharpening (1.3x), which provides improvements beyond the baseline crop functionality.
+The [crop-tool technique](https://platform.claude.com/cookbook/multimodal-crop-tool) documented by Anthropic improves accuracy on detail-heavy vision tasks. Our enhanced version adds automatic upscaling (2x), contrast enhancement (1.4x), and sharpening (1.3x), providing improvements beyond the baseline crop functionality.
 
-Common use cases where cropping helps:
-- **Small text extraction** — Read legends, labels, and fine print more accurately
-- **Chart value comparison** — Compare values across charts and diagrams with precision
-- **Table data extraction** — Extract structured data from tables and reports
-- **Technical diagram analysis** — Identify fine component details and connections
+**Best for:**
+- Analyzing charts with small legends or axis labels
+- Extracting data from documents with tables
+- Reading technical diagrams with fine details
+- Comparing values across multiple image regions
+- Any task requiring precision on image details
 
 ---
 
@@ -178,70 +172,6 @@ Claude will:
 
 ---
 
-## Performance Impact
-
-**With crop tool:**
-- ✅ Better accuracy on small text (95%+ vs 70%)
-- ✅ Faster analysis of complex images
-- ✅ More reliable chart/data extraction
-- ✅ Improved handling of dense documents
-
-**Recommended for:**
-- Charts with legend/axis labels
-- Documents with tables
-- Technical diagrams
-- Images with multiple focal points
-- Any task requiring precision on image details
-
----
-
-## Examples
-
-### Example 1: Chart Analysis
-
-```
-Input: Pie chart with small color legend
-Question: "Which color represents the minimum value?"
-
-Process:
-1. Claude views full chart
-2. Crops legend region (0.8-1.0, 0.0-0.4)
-3. Reads color-value mappings
-4. Analyzes main chart
-5. Returns answer with confidence
-```
-
-### Example 2: Document Extraction
-
-```
-Input: Technical document with multiple tables
-Task: "Extract all values from the comparison table"
-
-Process:
-1. Claude scans document layout
-2. Crops each table region
-3. Reads values precisely
-4. Returns structured data
-```
-
-### Example 3: Multi-region Analysis
-
-```
-Input: Complex dashboard with multiple charts
-Task: "Compare trends across all sections"
-
-Process:
-1. Claude views full dashboard
-2. Crops first chart region
-3. Analyzes first chart
-4. Crops second chart region
-5. Analyzes second chart
-6. Compares across regions
-7. Returns synthesis
-```
-
----
-
 ## When to Use vs Not Use
 
 ### Use crop tool when:
@@ -256,28 +186,6 @@ Process:
 - ❌ Large text is readable at full resolution
 - ❌ Simple object recognition tasks
 - ❌ General scene understanding
-
----
-
-## Architecture
-
-```
-Image Input
-    ↓
-Claude Views Full Image
-    ↓
-Claude Decides Regions to Crop
-    ↓
-Tool Executes Crop (normalized → pixels)
-    ↓
-Cropped Image Encoded as Base64
-    ↓
-Claude Analyzes Crop
-    ↓
-Iterate Until Complete
-    ↓
-Final Analysis
-```
 
 ---
 
