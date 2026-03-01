@@ -85,71 +85,53 @@ This allows Claude to specify regions without knowing actual pixel dimensions.
 
 ## How to Use This Skill
 
-### Basic Usage
-
-Claude automatically uses the crop tool when analyzing images:
-
-```
-"Analyze this chart and tell me which bar is tallest."
-```
-
-Claude will:
-1. View the full image
-2. Identify which regions need detail
-3. Crop those regions
-4. Examine cropped images
-5. Provide detailed analysis
-
 ### Scenario 1: Reading Small Text
 
 **Task:** Extract values from a chart legend
 
-**Claude will:**
-1. Crop the legend region
-2. Read text in high detail
-3. Return the values
+**How to ask:**
+```
+"Analyze this chart. Start by examining the legend closely."
+```
+
+**What Claude does:**
+1. Crops the legend region
+2. Reads text in high detail
+3. Returns the values with confidence
 
 ---
 
 ### Scenario 2: Comparing Values
 
-**Task:** Determine which pie slice is largest
+**Task:** Determine which pie slice is largest or compare elements
 
-**Claude will:**
-1. Examine full pie chart
-2. Crop uncertain regions
-3. Compare with precision
-4. Provide answer with confidence
+**How to ask:**
+```
+"Extract these values. Show me the exact regions you examined."
+```
+
+**What Claude does:**
+1. Examines full image
+2. Crops uncertain regions
+3. Shows which areas it examined
+4. Provides answer with source
 
 ---
 
-### Scenario 3: Dense Document Analysis
+### Scenario 3: Multi—section Analysis
 
-**Task:** Extract data from a technical document
+**Task:** Extract data from a technical document or compare metrics across sections
 
-**Claude will:**
-1. Examine full document layout
-2. Crop tables and data sections
-3. Extract precise values
-4. Organize results
-
-### Pattern 1: Guided Exploration
+**How to ask:**
 ```
-User: "Analyze this chart. Start by examining the legend closely."
-Claude: Crops legend region, reads values, then analyzes chart
+"Compare metrics across all three sections of this report."
 ```
 
-### Pattern 2: Verification
-```
-User: "Extract these values. Show me the exact regions you examined."
-Claude: Crops relevant regions, shows them, reports values with source
-```
-
-### Pattern 3: Multi-step Analysis
-```
-User: "Compare metrics across all three sections of this report."
-Claude: Crops each section, analyzes, synthesizes comparison
-```
+**What Claude does:**
+1. Examines full document layout
+2. Crops each relevant section
+3. Analyzes each section
+4. Synthesizes comparison across regions
 
 ---
 
