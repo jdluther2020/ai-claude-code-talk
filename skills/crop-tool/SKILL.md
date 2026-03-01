@@ -13,6 +13,7 @@ description: Crop specific regions of images for detailed analysis. Enables Clau
 - [Why It Matters—Performance Impact](#why-it-matters--performance-impact) — Benefits and best use cases
 - [What It Does](#what-it-does) — Core functionality and coordinate system
 - [How to Use This Skill](#how-to-use-this-skill) — Practical scenarios and workflows
+- [Code Examples](#code-examples) — Ready—to—use code patterns
 - [When to Use vs Not Use](#when-to-use-vs-not-use) — Decision guide
 - [Tips for Best Results](#tips-for-best-results) — Prompt strategies
 - [FAQ](#faq) — Common questions answered
@@ -131,6 +132,20 @@ This allows Claude to specify regions without knowing actual pixel dimensions.
 2. Crops each relevant section
 3. Analyzes each section
 4. Synthesizes comparison across regions
+
+---
+
+## Code Examples
+
+Ready to implement crop—tool in your own projects? Check out [`example.py`](./example.py) for 10 working code examples showing:
+
+- **Quick reference patterns** — Copy and modify real working code
+- **Different use cases** — Chart analysis, document extraction, diagrams, comparisons
+- **Advanced features** — Custom models, system prompts, flexible input methods
+- **Real datasets** — FigureQA dataset integration example
+- **Starting point** — Adaptable code you can build from immediately
+
+Each example is self—contained and ready to use with your own images.
 
 ---
 
