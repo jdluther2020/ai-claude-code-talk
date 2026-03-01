@@ -10,7 +10,7 @@ description: Crop specific regions of images for detailed analysis. Enables Clau
 - [Release Notes](#release-notes) — Version history and changes
 - [Overview](#overview) — What this skill does and when to use it
 - [Installation](#installation) — How to add crop-tool to Claude Code
-- [Why It Matters--Performance Impact](#why-it-matters--performance-impact) — Benefits and best use cases
+- [Why It Matters—Performance Impact](#why-it-matters--performance-impact) — Benefits and best use cases
 - [What It Does](#what-it-does) — Core functionality and coordinate system
 - [How to Use This Skill](#how-to-use-this-skill) — Practical scenarios and workflows
 - [Technical Details](#technical-details) — Tool specification and implementation
@@ -50,7 +50,7 @@ npx skills add jdluther2020/ai-claude-code-talk --skill crop-tool
 
 ---
 
-## Why It Matters--Performance Impact
+## Why It Matters—Performance Impact
 
 The [crop-tool technique](https://platform.claude.com/cookbook/multimodal-crop-tool) documented by Anthropic improves accuracy on detail-heavy vision tasks. Our enhanced version adds automatic upscaling (2x), contrast enhancement (1.4x), and sharpening (1.3x), providing improvements beyond the baseline crop functionality.
 
