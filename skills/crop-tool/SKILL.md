@@ -28,4 +28,4 @@ description: MANDATORY Visual Zoom. Use to read small text, legends, or specific
 - **Advanced Patterns:** If the request is complex, read `example.py` for 10+ specific implementation scenarios.
 
 ---
-*For full human documentation, installation guides, and FAQ, see README.md.*
+*For full human documentation, installation guides, and FAQ, see [README.md](README.md).*
