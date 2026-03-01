@@ -25,6 +25,7 @@ description: Crop specific regions of images for detailed analysis. Enables Clau
 
 ## Release Notes
 
+- **v1.2.0** (2026-03-01) — Added stopping condition: report unreadable regions after 2 attempts instead of iterating endlessly
 - **v1.1.0** (2026-02-27) — Added automatic image enhancement (upscale + contrast + sharpen) and improved logging
 - **v1.0.0** (2026-02-15) — Initial release with core crop functionality and normalized coordinates
 
