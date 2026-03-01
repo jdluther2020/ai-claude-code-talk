@@ -286,11 +286,72 @@ Final Analysis
 
 ## Tips for Best Results
 
-1. **Provide clear context** — Tell Claude what you're analyzing
-2. **Mention details needed** — Highlight if precision matters
-3. **Ask for reasoning** — Request Claude show cropped regions
-4. **Verify accuracy** — Check Claude's extracted values
-5. **Chain crops** — Let Claude crop iteratively as needed
+1. **Be specific about what you need**
+   - ✅ "Read the legend and list all color values"
+   - ❌ "Analyze this chart"
+
+2. **Mention if precision matters**
+   - ✅ "Extract exact numerical values from this table"
+   - ❌ "Look at this table"
+
+3. **Point out relevant regions**
+   - ✅ "The legend is in the top right corner"
+   - ❌ "Look at the legend"
+
+4. **Let Claude crop iteratively**
+   - ✅ "Use crop tool to examine any regions you need detail on"
+   - ❌ "Crop to (0.5, 0.5, 1.0, 1.0)" (too prescriptive)
+
+5. **Verify results**
+   - ✅ Ask Claude to show which regions it cropped
+   - ❌ Trust the result without verification
+
+---
+
+## Common Usage Patterns
+
+### Pattern 1: Guided Exploration
+```
+User: "Analyze this chart. Start by examining the legend closely."
+Claude: Crops legend region, reads values, then analyzes chart
+```
+
+### Pattern 2: Verification
+```
+User: "Extract these values. Show me the exact regions you examined."
+Claude: Crops relevant regions, shows them, reports values with source
+```
+
+### Pattern 3: Multi-step Analysis
+```
+User: "Compare metrics across all three sections of this report."
+Claude: Crops each section, analyzes, synthesizes comparison
+```
+
+---
+
+## FAQ
+
+**Q: Do I need to specify crop coordinates?**
+A: No! Claude decides what to crop. You just ask questions.
+
+**Q: What image sizes work best?**
+A: Works with any size. Crop tool automatically handles normalization.
+
+**Q: Can Claude crop the same region multiple times?**
+A: Yes, useful for examining at different "zoom levels" or with different questions.
+
+**Q: Is there a limit to crop operations?**
+A: No technical limit. Claude will crop as many regions as needed.
+
+**Q: Works with which Claude models?**
+A: Opus 4.5+ recommended. Older models have lower vision accuracy even with cropping.
+
+**Q: Can I use this with other vision skills?**
+A: Yes! Crop tool complements pdf, docx, xlsx, and other vision tasks.
+
+**Q: Why is my text still unreadable after cropping?**
+A: Extremely faint or low-contrast text has limits. The tool upscales and enhances, but can't fix poor original image quality.
 
 ---
 
