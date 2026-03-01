@@ -45,8 +45,10 @@ This makes even small, faint text in the original image readable and analyzable.
 ## Installation
 
 ```bash
-npx skills add https://github.com/jdluther2020/ai-claude-code-talk --skill crop-tool
+npx skills add https://github.com/jdluther2020/ai-claude-code-talk --skill crop-tool --global
 ```
+
+> **Why `--global`?** Crop-tool is a general-purpose vision skill useful across all your projects — not just one. Installing globally makes it available everywhere without repeating the install per project.
 
 ---
 
