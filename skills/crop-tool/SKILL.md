@@ -10,6 +10,26 @@ description: Crop specific regions of images for detailed analysis. Enables Clau
 - **v1.1.0** (2026-02-27) — Added automatic image enhancement (upscale + contrast + sharpen) and improved logging
 - **v1.0.0** (2026-02-15) — Initial release with core crop functionality and normalized coordinates
 
+---
+
+## Contents
+
+- [Overview](#overview) — What this skill does and when to use it
+- [Installation](#installation) — How to add crop-tool to Claude Code
+- [Why It Matters--Performance Impact](#why-it-matters--performance-impact) — Benefits and best use cases
+- [What It Does](#what-it-does) — Core functionality and coordinate system
+- [How to Use This Skill](#how-to-use-this-skill) — Practical scenarios and workflows
+- [Technical Details](#technical-details) — Tool specification and implementation
+- [When to Use vs Not Use](#when-to-use-vs-not-use) — Decision guide
+- [Tips for Best Results](#tips-for-best-results) — Prompt strategies
+- [Common Usage Patterns](#common-usage-patterns) — Real-world workflows
+- [FAQ](#faq) — Common questions answered
+- [Integration with Other Tools](#integration-with-other-tools) — Complementary skills
+- [Feedback & Improvements](#feedback--improvements) — Contribute ideas
+- [Resources](#resources) — External documentation
+
+---
+
 ## Overview
 
 Inspired by [Anthropic's crop tool technique](https://platform.claude.com/cookbook/multimodal-crop-tool) documented in [Claude Prompting best practices](https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices), this enhanced crop tool extends the capability beyond simple cropping. It gives Claude the ability to **crop AND zoom into** specific regions of images with automatic enhancement:
