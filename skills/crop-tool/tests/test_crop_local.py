@@ -29,24 +29,24 @@ def test_basic_crop():
     # Create a simple test image
     image = Image.new("RGB", (200, 200), color="blue")
 
-    # Test full image crop
+    # Test full image crop (enhance_image applies 2x upscale, so 200×200 → 400×400)
     result = handle_crop(image, 0.0, 0.0, 1.0, 1.0)
 
     assert len(result) == 2, "Should return text + image"
     assert result[0]["type"] == "text", "First item should be text"
     assert result[1]["type"] == "image", "Second item should be image"
-    assert "200×200px" in result[0]["text"], "Should report correct dimensions"
+    assert "400×400px" in result[0]["text"], "Should report correct dimensions (enhanced 2x)"
 
     print("✅ Full image crop: PASS")
 
-    # Test quarter crop
+    # Test quarter crop (100×100 → enhanced to 200×200)
     result = handle_crop(image, 0.0, 0.0, 0.5, 0.5)
-    assert "100×100px" in result[0]["text"], "Should report 100x100"
+    assert "200×200px" in result[0]["text"], "Should report 200x200 (enhanced 2x)"
     print("✅ Quarter crop: PASS")
 
-    # Test center crop
+    # Test center crop (100×100 → enhanced to 200×200)
     result = handle_crop(image, 0.25, 0.25, 0.75, 0.75)
-    assert "100×100px" in result[0]["text"], "Should report 100x100"
+    assert "200×200px" in result[0]["text"], "Should report 200x200 (enhanced 2x)"
     print("✅ Center crop: PASS")
 
 
@@ -158,14 +158,16 @@ def test_with_generated_images():
             assert len(result) == 2, f"Should return text + image for {filename}"
             assert "×" in result[0]["text"], "Should report dimensions"
 
-            # Calculate expected dimensions (same way as crop_tool does it)
+            # Calculate expected dimensions (crop_tool applies 2x upscale enhancement)
             x1_px = int(x1 * image.width)
             x2_px = int(x2 * image.width)
             y1_px = int(y1 * image.height)
             y2_px = int(y2 * image.height)
-            width = x2_px - x1_px
-            height = y2_px - y1_px
-            expected = f"{width}×{height}px"
+            crop_width = x2_px - x1_px
+            crop_height = y2_px - y1_px
+            enhanced_width = crop_width * 2
+            enhanced_height = crop_height * 2
+            expected = f"{enhanced_width}×{enhanced_height}px"
 
             assert expected in result[0]["text"], f"Should report {expected} for {region}"
             print(f"    ✅ {region}: {expected}")
@@ -185,8 +187,9 @@ def test_various_image_sizes():
         # Crop center
         result = handle_crop(image, 0.25, 0.25, 0.75, 0.75)
 
-        expected_width = int(0.5 * width)
-        expected_height = int(0.5 * height)
+        # crop_tool applies 2x upscale, so multiply by 2
+        expected_width = int(0.5 * width) * 2
+        expected_height = int(0.5 * height) * 2
         expected = f"{expected_width}×{expected_height}px"
 
         assert expected in result[0]["text"], f"Should handle {width}×{height}"
