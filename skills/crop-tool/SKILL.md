@@ -5,15 +5,9 @@ description: Crop specific regions of images for detailed analysis. Enables Clau
 
 # Crop Tool
 
-## Release Notes
-
-- **v1.1.0** (2026-02-27) — Added automatic image enhancement (upscale + contrast + sharpen) and improved logging
-- **v1.0.0** (2026-02-15) — Initial release with core crop functionality and normalized coordinates
-
----
-
 ## Contents
 
+- [Release Notes](#release-notes) — Version history and changes
 - [Overview](#overview) — What this skill does and when to use it
 - [Installation](#installation) — How to add crop-tool to Claude Code
 - [Why It Matters--Performance Impact](#why-it-matters--performance-impact) — Benefits and best use cases
@@ -27,6 +21,13 @@ description: Crop specific regions of images for detailed analysis. Enables Clau
 - [Integration with Other Tools](#integration-with-other-tools) — Complementary skills
 - [Feedback & Improvements](#feedback--improvements) — Contribute ideas
 - [Resources](#resources) — External documentation
+
+---
+
+## Release Notes
+
+- **v1.1.0** (2026-02-27) — Added automatic image enhancement (upscale + contrast + sharpen) and improved logging
+- **v1.0.0** (2026-02-15) — Initial release with core crop functionality and normalized coordinates
 
 ---
 
