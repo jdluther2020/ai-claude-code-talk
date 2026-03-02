@@ -295,6 +295,8 @@ This skill is designed for community contribution to the Anthropic ecosystem.
 - [FigureQA Dataset - Microsoft Research](https://www.microsoft.com/en-us/research/project/figureqa-dataset/)
 - [FigureQA: An Annotated Figure Dataset for Visual Reasoning](https://arxiv.org/abs/1710.07300)
 - [Claude API Docs](https://platform.claude.com/docs)
+- [crop-tool skill on GitHub](https://github.com/jdluther2020/ai-claude-code-talk/tree/main/skills/crop-tool)
+- [skills.sh — Discover Claude Skills](https://skills.sh/)
 
 ---
 
