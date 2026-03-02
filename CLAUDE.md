@@ -22,7 +22,9 @@ Create a folder with kebab-case name in the repo root:
 the-future-of-agentic-coding-with-claude-code/
 ```
 
-### Step 2: Create CLAUDE.md in Blog Folder
+### Step 2: Create CLAUDE.md and README.md in Blog Folder
+Each blog folder needs **both files**.
+
 Create a `CLAUDE.md` file with YAML frontmatter:
 
 ```yaml
@@ -33,6 +35,20 @@ reference: "https://medium.com/..."
 ---
 
 Optional description/notes about the article (follows the pattern of other CLAUDE.md files)
+```
+
+Create a `README.md` file following this pattern:
+
+```markdown
+# Article Title Here
+
+**Source:** Blog Series Name
+
+One-line description of the article.
+
+## Published Article
+
+[Article Title Here](https://medium.com/...)
 ```
 
 **IMPORTANT GOTCHAS:**
@@ -90,7 +106,8 @@ ai-claude-code-talk/
 - [ ] Gather title, context, and Medium URL
 - [ ] Create blog folder (kebab-case name)
 - [ ] Create CLAUDE.md with YAML frontmatter
-  - [ ] **Topic value is quoted** (if it has colons)
+  - [ ] **Topic value is quoted** (if it has colons or special characters)
+- [ ] Create README.md with title, source, description, and article link
   - [ ] Context field matches blog series name
   - [ ] Reference is full Medium URL
 - [ ] Update README.md (add at top of list)
