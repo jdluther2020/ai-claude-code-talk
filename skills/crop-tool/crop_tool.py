@@ -362,3 +362,6 @@ if __name__ == "__main__":
                 f.write(img_bytes)
             print(out_path)
             break
+        if block["type"] == "text" and block["text"].startswith("Error:"):
+            print(block["text"], file=sys.stderr)
+            sys.exit(1)
