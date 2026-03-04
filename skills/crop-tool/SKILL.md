@@ -27,7 +27,24 @@ In addition to cropping, this skill enhances the extracted region further:
 - **1.4x contrast boost** — makes text and edges pop
 - **1.3x sharpness boost** — reduces blur introduced by upscaling
 
-Claude runs the tool via Bash, reads the output with its own vision, and iterates across regions as needed.
+### How Claude Must Invoke the Tool
+
+**IMPORTANT:** Always use the skill's `crop_tool.py` CLI via Bash — do NOT write your own PIL/image-processing code.
+
+```bash
+python3 /Users/jdl/.claude/skills/crop-tool/crop_tool.py \
+  <image_path> <x1> <y1> <x2> <y2> [--output <out_path>]
+```
+
+- Coordinates are **normalized (0–1)**, where `(0,0)` is top-left and `(1,1)` is bottom-right
+- The script prints the output file path; read that file with the Read tool to view the cropped region
+- Iterate across regions as needed until the question is fully answered
+
+**Example:**
+```bash
+python3 /Users/jdl/.claude/skills/crop-tool/crop_tool.py \
+  chart.png 0.5 0.2 1.0 0.65 --output /tmp/legend_crop.png
+```
 
 ---
 *For full documentation see [README.md](README.md).*
