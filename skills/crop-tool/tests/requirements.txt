@@ -1,0 +1,12 @@
+# Crop Tool Test Dependencies
+
+# Core dependencies
+anthropic>=0.28.0
+Pillow>=10.0.0
+datasets>=2.14.0
+
+# Optional for performance
+numpy>=1.24.0
+
+# Development (for running tests)
+pytest>=7.0.0
