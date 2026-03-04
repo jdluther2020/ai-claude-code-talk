@@ -7,34 +7,21 @@ involving charts, documents, diagrams, and dense images with small details.
 """
 
 import base64
-import subprocess
 import sys
 from io import BytesIO
+from pathlib import Path
 from typing import Union, List, Dict, Any
 
 try:
     from anthropic import Anthropic
     from PIL import Image as PILImage
     from PIL import ImageEnhance
-except ImportError:
-    print("[crop-tool] Installing required dependencies (Pillow, anthropic)...")
-    _base_cmd = [sys.executable, "-m", "pip", "install", "Pillow", "anthropic", "-q"]
-    _installed = False
-    for _flags in [[], ["--user"], ["--break-system-packages"]]:
-        try:
-            subprocess.check_call(_base_cmd + _flags, stderr=subprocess.DEVNULL)
-            _installed = True
-            break
-        except subprocess.CalledProcessError:
-            continue
-    if not _installed:
-        raise RuntimeError(
-            "[crop-tool] Auto-install failed. Please run manually:\n"
-            "  pip install Pillow anthropic"
-        )
-    from anthropic import Anthropic
-    from PIL import Image as PILImage
-    from PIL import ImageEnhance
+except ImportError as e:
+    raise ImportError(
+        f"[crop-tool] Missing dependency: {e}\n"
+        "Install required packages before use:\n"
+        "  pip install Pillow anthropic"
+    ) from e
 
 
 # Tool Definition
@@ -121,7 +108,10 @@ def get_pil_image(img: Union[PILImage.Image, Dict[str, Any]]) -> PILImage.Image:
     if isinstance(img, dict) and "bytes" in img:
         return PILImage.open(BytesIO(img["bytes"]))
     if isinstance(img, str):
-        return PILImage.open(img)
+        p = Path(img).resolve()
+        if not p.is_file():
+            raise ValueError(f"Image path does not exist or is not a file: {p}")
+        return PILImage.open(p)
     raise ValueError(f"Cannot convert {type(img)} to PIL Image")
 
 
@@ -238,7 +228,10 @@ def ask_with_crop_tool(
             "content": [
                 {
                     "type": "text",
-                    "text": f"Please analyze this image and answer the following question:\n\n{question}\n\n"
+                    "text": "Please analyze this image and answer the following question:\n\n"
+                    "<question>\n"
+                    f"{question}\n"
+                    "</question>\n\n"
                     "Use the crop_image tool to examine specific regions if you need to see details more clearly.",
                 },
                 {
@@ -338,6 +331,7 @@ def analyze_image_with_crops(
 #   python3 crop_tool.py chart.png 0 0.5 0.5 1 --output /tmp/q3.png
 if __name__ == "__main__":
     import argparse
+    import os
     import tempfile
 
     parser = argparse.ArgumentParser(
@@ -351,15 +345,25 @@ if __name__ == "__main__":
     parser.add_argument("--output", help="Output file path (default: auto temp file)")
     args = parser.parse_args()
 
-    img = PILImage.open(args.image)
+    image_path = Path(args.image).resolve()
+    if not image_path.is_file():
+        print(f"Error: Image path does not exist or is not a file: {image_path}", file=sys.stderr)
+        sys.exit(1)
+
+    img = PILImage.open(image_path)
     result_blocks = handle_crop(img, args.x1, args.y1, args.x2, args.y2)
 
     for block in result_blocks:
         if block["type"] == "image":
             img_bytes = base64.standard_b64decode(block["source"]["data"])
-            out_path = args.output or tempfile.mktemp(suffix=".png", prefix="crop_tool_")
-            with open(out_path, "wb") as f:
-                f.write(img_bytes)
+            if args.output:
+                out_path = args.output
+                with open(out_path, "wb") as f:
+                    f.write(img_bytes)
+            else:
+                fd, out_path = tempfile.mkstemp(suffix=".png", prefix="crop_tool_")
+                with os.fdopen(fd, "wb") as f:
+                    f.write(img_bytes)
             print(out_path)
             break
         if block["type"] == "text" and block["text"].startswith("Error:"):

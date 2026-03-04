@@ -26,6 +26,7 @@ description: Crop specific regions of images for detailed analysis. Enables Clau
 
 ## Release Notes
 
+- **v2.0.0** (2026-03-04) — Security hardening: removed runtime auto-install (requires explicit `pip install`), replaced insecure `tempfile.mktemp` with `mkstemp`, added file path validation, added prompt injection delimiters around user questions
 - **v1.4.0** (2026-03-01) — Added CLI mode for Claude Code: crop + enhance + save to file, no API key required
 - **v1.3.0** (2026-03-01) — Self-healing imports: auto-installs `Pillow`/`anthropic` on first use with macOS Homebrew fallback
 - **v1.2.0** (2026-03-01) — Added stopping condition: report unreadable regions after 2 attempts instead of iterating endlessly
@@ -48,9 +49,7 @@ This makes even small, faint text in the original image readable and analyzable.
 
 ## Prerequisites
 
-Crop-tool uses Python (`Pillow`, `anthropic`) for image processing. **These are installed automatically on first use** — no manual setup needed.
-
-If auto-install fails (e.g., due to permissions or a restricted environment), install manually:
+Crop-tool uses Python (`Pillow`, `anthropic`) for image processing. Install before first use:
 
 ```bash
 pip install Pillow anthropic
