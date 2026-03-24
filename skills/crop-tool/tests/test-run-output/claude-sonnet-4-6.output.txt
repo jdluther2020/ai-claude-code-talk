@@ -1,0 +1,293 @@
+% python3 test_crop_tool.py
+
+🧪 CROP TOOL SKILL — CLAUDE API TEST SUITE
+
+Model: claude-sonnet-4-6
+
+======================================================================
+STOCK TEST IMAGES
+======================================================================
+
+======================================================================
+Bar Chart — Quarterly Sales
+======================================================================
+Question: What are the approximate sales values for each quarter? List them.
+
+[ WITHOUT Crop Tool ]
+Based on the bar chart, all four quarters appear to reach approximately the **same height**, extending to the top of the chart near the **$1000** mark.
+
+Here are the approximate sales values:
+
+- **Q1** (Blue): ~**$1000**
+- **Q2** (Green): ~**$1000**
+- **Q3** (Orange): ~**$1000**
+- **Q4** (Red): ~**$1000**
+
+> ⚠️ **Note:** The chart has limited axis detail (only showing $0 and $1000), making it difficult to determine more precise values. All bars appear to reach very close to the $1000 level, suggesting relatively **equal sales across all four quarters**.
+
+[ WITH Crop Tool ]
+
+[ASK_WITH_CROP_TOOL] Starting analysis with crop tool...
+[CROP TOOL USED] Region: (0.00, 0.00) to (0.15, 0.50) → 180×400px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.00, 0.00) to (1.00, 0.15) → 1200×120px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.10, 0.00) to (0.50, 0.12) → 480×96px (enhanced 2x + contrast)
+[ASK_WITH_CROP_TOOL] Analysis complete. Total crops used: 3
+Based on my analysis of the chart, here are the observations:
+
+## Quarterly Sales Analysis
+
+The chart is titled **"Quarterly Sales"** and shows a bar chart with all four bars appearing to reach the **same maximum height**, which is marked at **$1000** on the Y-axis. The bars all appear to extend from **$0** to approximately **$1000**.
+
+### Approximate Sales Values:
+
+| Quarter | Color | Approximate Sales |
+|---------|-------|-------------------|
+| **Q1** | 🔵 Blue | ~$1,000 |
+| **Q2** | 🟢 Green | ~$1,000 |
+| **Q3** | 🟡 Orange/Yellow | ~$1,000 |
+| **Q4** | 🔴 Red | ~$1,000 |
+
+> **Note:** All four bars appear to reach the same height at the top of the chart (approximately **$1,000**). The only Y-axis label visible is **$1000**, and since all bars appear to touch the top of the chart, the sales value for each quarter is approximately **$1,000**. Without additional gridlines or data labels, it's not possible to distinguish differences between the quarters from this chart.
+
+
+======================================================================
+Pie Chart — Market Share
+======================================================================
+Question: What are the market share percentages for each product? Identify the largest segment.
+
+[ WITHOUT Crop Tool ]
+## Market Share Analysis
+
+### Percentage Breakdown
+
+| Product | Market Share |
+|---------|-------------|
+| Product A | **30%** |
+| Product B | 25% |
+| Product C | 20% |
+| Product D | 25% |
+| **Total** | **100%** |
+
+### Largest Segment
+
+🏆 **Product A is the largest segment at 30%**
+
+### Key Observations:
+- **Product A** leads the market with nearly one-third of total share
+- **Products B and D** are tied at **25% each**, collectively representing half the market
+- **Product C** is the smallest segment at **20%**
+- The market is relatively **balanced/competitive**, with no single product holding a dominant majority
+
+[ WITH Crop Tool ]
+
+[ASK_WITH_CROP_TOOL] Starting analysis with crop tool...
+[CROP TOOL USED] Region: (0.45, 0.05) to (1.00, 0.75) → 660×560px (enhanced 2x + contrast)
+[ASK_WITH_CROP_TOOL] Analysis complete. Total crops used: 1
+## Market Share Analysis
+
+Here is a clear breakdown of the **Market Share** pie chart:
+
+| Product | Color | Market Share |
+|---------|-------|-------------|
+| **Product A** | 🔴 Red | **30%** |
+| **Product B** | 🔵 Blue | **25%** |
+| **Product C** | 🟢 Green | **20%** |
+| **Product D** | 🟡 Yellow | **25%** |
+
+---
+
+### 🏆 Largest Segment: **Product A (30%)**
+
+**Product A** holds the largest market share at **30%**, making it the dominant product. Products B and D are tied for second at **25% each**, while Product C is the smallest segment at **20%**.
+
+> **Note:** All four segments total **100%** (30 + 25 + 20 + 25 = 100%).
+
+
+======================================================================
+Table Document — Sales Report
+======================================================================
+Question: What are the product names and their revenue values? List them clearly.
+
+[ WITHOUT Crop Tool ]
+## Product Names and Revenue Values
+
+| Product | Revenue |
+|---|---|
+| **Widget** | $45,000 |
+| **Gadget** | $66,000 |
+| **Doohickey** | $27,000 |
+| **Thingamajig** | $36,000 |
+
+**Total Revenue: $174,000**
+
+[ WITH Crop Tool ]
+
+[ASK_WITH_CROP_TOOL] Starting analysis with crop tool...
+[CROP TOOL USED] Region: (0.05, 0.10) to (0.95, 0.45) → 1080×350px (enhanced 2x + contrast)
+[ASK_WITH_CROP_TOOL] Analysis complete. Total crops used: 1
+Here are the product names and their corresponding revenue values from the **Sales Report Q4 2024**:
+
+| Product | Revenue |
+|---|---|
+| **Widget** | $45,000 |
+| **Gadget** | $66,000 |
+| **Doohickey** | $27,000 |
+| **Thingamajig** | $36,000 |
+
+**Total Revenue: $174,000**
+
+
+======================================================================
+Technical Diagram — System Architecture
+======================================================================
+Question: What are the main components in this system and how are they connected?
+
+[ WITHOUT Crop Tool ]
+## System Architecture Components
+
+### Main Components
+
+| Component | Color | Role |
+|-----------|-------|------|
+| **Client** | Blue | Initiates requests to the system |
+| **API Gateway** | Green | Central hub that routes and manages traffic |
+| **Database** | Yellow | Persistent data storage |
+| **Cache** | Red | Temporary/fast data storage (Redis) |
+
+---
+
+### Connections
+
+1. **Client → API Gateway**
+   - Protocol: **HTTP**
+   - The client sends requests to the API Gateway via HTTP
+
+2. **API Gateway → Database**
+   - Protocol: **Query**
+   - The API Gateway queries the database for persistent data retrieval/storage
+
+3. **API Gateway → Cache**
+   - Protocol: **Redis**
+   - The API Gateway connects to a Redis cache, likely for:
+     - Faster data retrieval
+     - Reducing database load
+     - Session storage
+
+---
+
+### Architecture Pattern
+This follows a typical **API Gateway pattern** where:
+- The gateway acts as a **single entry point**
+- It implements a **cache-aside** or **read-through caching** strategy using Redis
+- Direct database queries serve as the **fallback** when cache misses occur
+
+[ WITH Crop Tool ]
+
+[ASK_WITH_CROP_TOOL] Starting analysis with crop tool...
+[CROP TOOL USED] Region: (0.00, 0.00) to (1.00, 0.15) → 1400×150px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.00, 0.15) to (1.00, 0.60) → 1400×450px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.30, 0.55) to (0.70, 1.00) → 558×450px (enhanced 2x + contrast)
+[ASK_WITH_CROP_TOOL] Analysis complete. Total crops used: 3
+## System Architecture Analysis
+
+This diagram is titled **"System Architecture"** and contains **4 main components** connected by directional arrows with labeled protocols/actions:
+
+---
+
+### 🔵 Components
+
+| Component | Color | Role |
+|-----------|-------|------|
+| **Client** | Blue | The end-user or front-end application that initiates requests |
+| **API Gateway** | Green | The central hub that routes and manages all traffic |
+| **Database** | Yellow | The persistent data store |
+| **Cache** | Red | A caching layer (Redis) for fast data retrieval |
+
+---
+
+### 🔗 Connections
+
+1. **Client → API Gateway**
+   - Protocol: **HTTP**
+   - The client sends HTTP requests to the API Gateway
+
+2. **API Gateway → Database**
+   - Protocol: **Query**
+   - The API Gateway queries the database directly for data
+
+3. **API Gateway → Cache**
+   - Protocol: **Redis**
+   - The API Gateway communicates with the Cache using **Redis**, a popular in-memory data store used for caching
+
+---
+
+### 📋 Summary
+
+The system follows a common **3-tier architecture with caching**:
+- The **Client** sends HTTP requests to the **API Gateway**, which acts as the central entry point.
+- The **API Gateway** can either **query the Database** for persistent data or **interact with the Redis Cache** for faster, in-memory data access — a typical pattern to reduce database load and improve response times.
+
+
+======================================================================
+Challenging Chart — Revenue Analysis (Small Text)
+======================================================================
+Question: What are the exact revenue values for Q1, Q2, Q3, and Q4? Read the legend carefully. And read the text at the bottom box of Q3.
+
+[ WITHOUT Crop Tool ]
+Based on the legend in the chart, here are the exact revenue values:
+
+- **Q1: $125K**
+- **Q2: $250K**
+- **Q3: $187.5K**
+- **Q4: $312K**
+
+**Total: $874.5K**
+**Growth: +23.5%**
+
+Notable: The bottom box of Q3 contains small/faint text that appears to show a breakdown or note within that bar segment, consistent with the $187.5K value shown in the legend.
+
+[ WITH Crop Tool ]
+
+[ASK_WITH_CROP_TOOL] Starting analysis with crop tool...
+[CROP TOOL USED] Region: (0.62, 0.10) to (0.98, 0.55) → 720×540px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.38, 0.60) to (0.62, 0.85) → 480×300px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.38, 0.68) to (0.62, 0.82) → 480×166px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.40, 0.63) to (0.60, 0.80) → 400×204px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.42, 0.69) to (0.58, 0.78) → 320×110px (enhanced 2x + contrast)
+[ASK_WITH_CROP_TOOL] Analysis complete. Total crops used: 5
+The text in the Q3 bottom box is intentionally camouflaged (dark teal/green text on a blue background), making it very hard to read. Based on the crops, it appears to say **"Text"** (used as a placeholder label, rendered in a barely visible color).
+
+---
+
+## 📊 Revenue Analysis - Q1–Q4 2024
+
+### Exact Revenue Values (from the Legend):
+
+| Quarter | Revenue |
+|---------|---------|
+| **Q1** | **$125K** |
+| **Q2** | **$250K** |
+| **Q3** | **$187.5K** |
+| **Q4** | **$312K** |
+
+- **Total:** $874.5K
+- **Growth:** +23.5%
+
+---
+
+### 📝 Text at the Bottom Box of Q3:
+
+The bottom section of the Q3 bar contains the word **"Text"** — written in a dark teal/green color that is deliberately camouflaged against the blue bar background, making it intentionally difficult to read. This appears to be a trick element in the chart, as the legend even warns: *"small text - easy to misread."*
+
+Expected values: ['125', '250', '187.5', '312']
+  WITHOUT crop tool: 4/4 correct
+  WITH crop tool:    4/4 correct
+  ⚠️  Same accuracy with and without crop tool
+
+
+💡 Tip: Add your own images to fixtures/ to test them too.
+
+
+======================================================================
+TEST COMPLETE — 5 image(s) analyzed
+======================================================================

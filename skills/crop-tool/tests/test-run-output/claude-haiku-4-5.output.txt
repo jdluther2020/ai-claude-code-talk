@@ -1,0 +1,267 @@
+python3 test_crop_tool.py
+
+🧪 CROP TOOL SKILL — CLAUDE API TEST SUITE
+
+Model: claude-haiku-4-5-20251001
+
+======================================================================
+STOCK TEST IMAGES
+======================================================================
+
+======================================================================
+Bar Chart — Quarterly Sales
+======================================================================
+Question: What are the approximate sales values for each quarter? List them.
+
+[ WITHOUT Crop Tool ]
+# Approximate Sales Values by Quarter
+
+Based on the bar chart:
+
+- **Q1 (Blue):** $1,000
+- **Q2 (Green):** $900
+- **Q3 (Orange):** $800
+- **Q4 (Red):** $850
+
+The chart shows a general declining trend from Q1 to Q3, with a slight recovery in Q4.
+
+[ WITH Crop Tool ]
+
+[ASK_WITH_CROP_TOOL] Starting analysis with crop tool...
+[CROP TOOL USED] Region: (0.00, 0.00) to (1.00, 0.50) → 1200×400px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.00, 0.30) to (1.00, 1.00) → 1200×560px (enhanced 2x + contrast)
+[ASK_WITH_CROP_TOOL] Analysis complete. Total crops used: 2
+Based on my analysis of the bar chart, I can see the Y-axis shows a scale from $0 to $1000. Looking at the height of each colored bar representing the quarters:
+
+## Approximate Sales Values for Each Quarter:
+
+- **Q1 (Blue bar):** Approximately **$900-$950**
+- **Q2 (Green bar):** Approximately **$800-$850**
+- **Q3 (Orange bar):** Approximately **$700-$750**
+- **Q4 (Red bar):** Approximately **$850-$900**
+
+The chart shows a general declining trend from Q1 to Q3, with a slight recovery in Q4. Q1 had the highest sales, while Q3 had the lowest sales among the four quarters.
+
+
+======================================================================
+Pie Chart — Market Share
+======================================================================
+Question: What are the market share percentages for each product? Identify the largest segment.
+
+[ WITHOUT Crop Tool ]
+# Market Share Percentages
+
+Based on the pie chart, here are the market share percentages for each product:
+
+- **Product A (Red): 30%**
+- **Product B (Blue): 25%**
+- **Product C (Green): 20%**
+- **Product D (Yellow): 25%**
+
+## Largest Segment
+
+**Product A is the largest market segment with 30% market share.**
+
+[ WITH Crop Tool ]
+
+[ASK_WITH_CROP_TOOL] Starting analysis with crop tool...
+[CROP TOOL USED] Region: (0.20, 0.05) to (0.80, 0.40) → 720×280px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.45, 0.08) to (0.95, 0.35) → 600×216px (enhanced 2x + contrast)
+[ASK_WITH_CROP_TOOL] Analysis complete. Total crops used: 2
+Based on my analysis of the pie chart and its legend, here are the **market share percentages for each product**:
+
+| Product | Market Share |
+|---------|--------------|
+| **Product A** | **30%** |
+| **Product B** | **25%** |
+| **Product C** | **20%** |
+| **Product D** | **25%** |
+
+**Largest Segment:** **Product A with 30% market share**
+
+Product A represents the largest market segment, occupying the most substantial portion of the pie chart (shown in red).
+
+
+======================================================================
+Table Document — Sales Report
+======================================================================
+Question: What are the product names and their revenue values? List them clearly.
+
+[ WITHOUT Crop Tool ]
+# Product Names and Revenue Values
+
+| Product | Revenue |
+|---------|----------|
+| Widget | $45,000 |
+| Gadget | $66,000 |
+| Doohickey | $27,000 |
+| Thingamajig | $36,000 |
+
+**Total Revenue: $174,000**
+
+[ WITH Crop Tool ]
+
+[ASK_WITH_CROP_TOOL] Starting analysis with crop tool...
+[CROP TOOL USED] Region: (0.05, 0.08) to (0.95, 0.35) → 1080×270px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.05, 0.15) to (0.95, 0.32) → 1080×170px (enhanced 2x + contrast)
+[ASK_WITH_CROP_TOOL] Analysis complete. Total crops used: 2
+Based on the Sales Report Q4 2024 image, here are the **product names and their revenue values**:
+
+| Product | Revenue |
+|---------|----------|
+| Widget | $45,000 |
+| Gadget | $66,000 |
+| Doshickey | $27,000 |
+| Thingamajig | $36,000 |
+
+**Summary:**
+- **Total Revenue: $174,000**
+- **Average Margin: 31.25%**
+
+The Gadget product has the highest revenue at $66,000, while Doshickey has the lowest at $27,000.
+
+
+======================================================================
+Technical Diagram — System Architecture
+======================================================================
+Question: What are the main components in this system and how are they connected?
+
+[ WITHOUT Crop Tool ]
+# System Architecture Components
+
+## Main Components
+
+1. **Client** (Light Blue)
+   - The user-facing application or frontend
+   - Initiates requests to the system
+
+2. **API Gateway** (Green)
+   - Central hub that processes requests
+   - Routes and manages communication between components
+   - Acts as an intermediary/middleware
+
+3. **Database** (Cream/Yellow)
+   - Persistent data storage
+   - Stores application data
+
+4. **Cache** (Red)
+   - In-memory data storage (likely Redis or similar)
+   - Improves performance by storing frequently accessed data
+
+## Connections
+
+| Connection | Protocol | Purpose |
+|-----------|----------|---------|
+| **Client → API Gateway** | HTTP | Client sends requests to the gateway |
+| **API Gateway → Database** | Query | Gateway retrieves/stores data in the database |
+| **API Gateway ↔ Cache** | Redis | Gateway caches frequently accessed data and retrieves cached results |
+
+## Flow Summary
+
+1. Client makes an HTTP request to the API Gateway
+2. API Gateway checks the Cache first for the requested data
+3. If not in cache (cache miss), it queries the Database
+4. Results are stored in Cache for future requests
+5. Response is sent back to the Client
+
+This architecture improves performance through caching while maintaining data consistency through
+
+[ WITH Crop Tool ]
+
+[ASK_WITH_CROP_TOOL] Starting analysis with crop tool...
+[CROP TOOL USED] Region: (0.00, 0.00) to (1.00, 1.00) → 1400×1000px (enhanced 2x + contrast)
+[ASK_WITH_CROP_TOOL] Analysis complete. Total crops used: 1
+## System Architecture Overview
+
+This diagram illustrates a **4-tier system architecture** with the following main components and their connections:
+
+### **Main Components:**
+
+1. **Client** (Light Blue)
+   - Entry point for user requests/interactions
+
+2. **API Gateway** (Green)
+   - Central middleware/routing component
+   - Acts as the intermediary between the client and backend services
+
+3. **Database** (Pale Yellow)
+   - Persistent data storage system
+
+4. **Cache** (Red/Coral)
+   - In-memory caching layer for improved performance
+
+### **Connections:**
+
+1. **Client → API Gateway** (HTTP)
+   - The client communicates with the API Gateway using HTTP protocol
+   - Requests flow from the client to the API Gateway
+
+2. **API Gateway → Database** (Query)
+   - The API Gateway sends database queries to the Database
+   - Retrieves or stores data as needed
+
+3. **API Gateway → Cache** (Redis)
+   - The API Gateway interacts with the Cache using Redis
+   - Stores frequently accessed data for faster retrieval
+
+### **System Flow:**
+- When a client makes an HTTP request, it goes to the API Gateway
+- The API Gateway can check the Cache first for quick data retrieval
+- If data isn't cached, it queries the Database and updates the Cache
+- This architecture optimizes performance by reducing direct database hits and leveraging caching
+
+
+======================================================================
+Challenging Chart — Revenue Analysis (Small Text)
+======================================================================
+Question: What are the exact revenue values for Q1, Q2, Q3, and Q4? Read the legend carefully. And read the text at the bottom box of Q3.
+
+[ WITHOUT Crop Tool ]
+# Revenue Values by Quarter (Q1-Q4 2024)
+
+According to the legend in the top right:
+
+- **Q1: $125k**
+- **Q2: $250k**
+- **Q3: $187.5k**
+- **Q4: $312k**
+
+**Important note:** The legend includes a warning that states "⚠ [text - easy to mislead]," which suggests the visual representation of the bars may not accurately reflect these values. The text at the bottom of the Q3 box also appears to contain additional context, though it's partially obscured in the image.
+
+[ WITH Crop Tool ]
+
+[ASK_WITH_CROP_TOOL] Starting analysis with crop tool...
+[CROP TOOL USED] Region: (0.55, 0.08) to (0.95, 0.35) → 800×324px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.35, 0.40) to (0.60, 0.55) → 500×180px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.35, 0.45) to (0.60, 0.65) → 500×240px (enhanced 2x + contrast)
+[CROP TOOL USED] Region: (0.30, 0.35) to (0.65, 0.75) → 700×480px (enhanced 2x + contrast)
+[ASK_WITH_CROP_TOOL] Analysis complete. Total crops used: 4
+Great! I can see the Q3 bar clearly with "Test" written inside it. Based on my analysis of the image, here are the exact revenue values:
+
+## Revenue Values for Q1-Q4 2024:
+
+According to the **Legend** displayed in the chart:
+
+- **Q1: $125K**
+- **Q2: $250K**
+- **Q3: $187.5K**
+- **Q4: $312K**
+
+## Text at bottom of Q3:
+The text visible in the Q3 box reads: **"Test"**
+
+The legend also includes a note stating "(small text - easy to mislead)," which appears to be a disclaimer about the visualization. Additionally, the chart shows a total of $874.5K and growth of +23%.
+
+Expected values: ['125', '250', '187.5', '312']
+  WITHOUT crop tool: 4/4 correct
+  WITH crop tool:    4/4 correct
+  ⚠️  Same accuracy with and without crop tool
+
+
+💡 Tip: Add your own images to fixtures/ to test them too.
+
+
+======================================================================
+TEST COMPLETE — 5 image(s) analyzed
+======================================================================
+

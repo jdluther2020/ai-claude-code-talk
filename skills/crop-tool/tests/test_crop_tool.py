@@ -8,7 +8,9 @@ Runs each test image through two passes:
 
 Supports both stock test images and your own images via fixtures/.
 
-Requires: ANTHROPIC_API_KEY environment variable set
+Requires:
+  ANTHROPIC_API_KEY environment variable set
+  CLAUDE_MODEL environment variable (optional, defaults to claude-haiku-4-5-20251001)
 """
 
 import sys
@@ -53,7 +55,7 @@ STOCK_TESTS = [
 ]
 
 
-def run_comparison(client, image, description, question, expected_values=None):
+def run_comparison(client, image, description, question, expected_values=None, model="claude-haiku-4-5-20251001"):
     """
     Run a single image through with/without crop tool comparison.
 
@@ -84,7 +86,7 @@ def run_comparison(client, image, description, question, expected_values=None):
     ]
     try:
         response = client.messages.create(
-            model="claude-haiku-4-5-20251001",
+            model=model,
             max_tokens=300,
             messages=messages,
         )
@@ -100,7 +102,7 @@ def run_comparison(client, image, description, question, expected_values=None):
         answer_with = ask_with_crop_tool(
             image=image,
             question=question,
-            model="claude-haiku-4-5-20251001",
+            model=model,
             client=client,
         )
         print(f"{answer_with}\n")
@@ -132,7 +134,10 @@ def run_comparison(client, image, description, question, expected_values=None):
 
 
 def main():
+    model = os.environ.get("CLAUDE_MODEL", "claude-haiku-4-5-20251001")
+
     print("\n🧪 CROP TOOL SKILL — CLAUDE API TEST SUITE\n")
+    print(f"Model: {model}\n")
 
     client = Anthropic()
     test_images_dir = Path(__file__).parent / "test_images"
@@ -157,6 +162,7 @@ def main():
             test["description"],
             test["question"],
             test.get("expected_values"),
+            model=model,
         )
         results.append(result)
 
@@ -178,6 +184,7 @@ def main():
                 image,
                 f"Fixture: {image_path.name}",
                 "Analyze this image in detail. Read any text, values, or labels you can find.",
+                model=model,
             )
             results.append(result)
     else:
