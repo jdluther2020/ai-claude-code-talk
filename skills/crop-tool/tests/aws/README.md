@@ -40,7 +40,11 @@ python3 generate_test_images.py
 ## Running the Tests
 
 ```bash
-# From this directory
+# Step 1 — Verify AWS credentials and Bedrock model access
+python3 verify_bedrock.py
+# ✅ Crop tool on Bedrock — ready.
+
+# Step 2 — Run the full test suite
 python3 test_crop_bedrock.py
 ```
 
@@ -90,6 +94,7 @@ known expected values to quantify improvement.
 tests/aws/
 ├── README.md                  # This file
 ├── requirements.txt           # boto3, Pillow
+├── verify_bedrock.py          # Pre-flight: verify AWS credentials + model access
 └── test_crop_bedrock.py       # Main test suite
 ```
 
