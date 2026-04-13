@@ -13,14 +13,13 @@ from pathlib import Path
 from typing import Union, List, Dict, Any
 
 try:
-    from anthropic import Anthropic
     from PIL import Image as PILImage
     from PIL import ImageEnhance
 except ImportError as e:
     raise ImportError(
         f"[crop-tool] Missing dependency: {e}\n"
         "Install required packages before use:\n"
-        "  pip install Pillow anthropic"
+        "  pip install Pillow"
     ) from e
 
 
@@ -185,7 +184,7 @@ def ask_with_crop_tool(
     image: Union[PILImage.Image, str, Dict[str, Any]],
     question: str,
     model: str = "claude-opus-4-6",
-    client: Anthropic = None,
+    client=None,
     system_prompt: str = None,
     max_iterations: int = 10,
 ) -> str:
@@ -208,6 +207,14 @@ def ask_with_crop_tool(
     """
     # Initialize client if not provided
     if client is None:
+        try:
+            from anthropic import Anthropic
+        except ImportError as e:
+            raise ImportError(
+                f"[crop-tool] Missing dependency: {e}\n"
+                "Install required packages before use:\n"
+                "  pip install anthropic"
+            ) from e
         client = Anthropic()
 
     # Convert image to PIL if needed
@@ -310,6 +317,14 @@ def analyze_image_with_crops(
     Returns:
         Dictionary mapping questions to Claude's answers
     """
+    try:
+        from anthropic import Anthropic
+    except ImportError as e:
+        raise ImportError(
+            f"[crop-tool] Missing dependency: {e}\n"
+            "Install required packages before use:\n"
+            "  pip install anthropic"
+        ) from e
     client = Anthropic()
     results = {}
 
