@@ -39,17 +39,11 @@ AWS_REGION = os.environ.get("AWS_REGION", "us-east-1")
 
 # Bedrock model IDs — verify these in your AWS Bedrock console.
 # Cross-region inference profile IDs use the "us." prefix.
-BEDROCK_MODEL_HAIKU = os.environ.get(
-    "BEDROCK_MODEL_HAIKU",
-    "us.anthropic.claude-haiku-4-5-20251001-v1:0",
-)
-BEDROCK_MODEL_SONNET = os.environ.get(
-    "BEDROCK_MODEL_SONNET",
-    "us.anthropic.claude-sonnet-4-6-20251001-v1:0",
-)
+BEDROCK_MODEL_HAIKU = "us.anthropic.claude-haiku-4-5-20251001-v1:0"
+BEDROCK_MODEL_SONNET = "us.anthropic.claude-sonnet-4-6-20251001-v1:0"
 
-# Default model used for comparison tests
-DEFAULT_MODEL = BEDROCK_MODEL_HAIKU
+# Default model — override with BEDROCK_MODEL env var
+DEFAULT_MODEL = os.environ.get("BEDROCK_MODEL", BEDROCK_MODEL_HAIKU)
 
 # ---------------------------------------------------------------------------
 # Stock test cases — same images as test_crop_tool.py

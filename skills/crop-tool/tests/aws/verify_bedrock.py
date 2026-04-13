@@ -14,20 +14,18 @@ import sys
 import boto3
 
 AWS_REGION = os.environ.get("AWS_REGION", "us-east-1")
-BEDROCK_MODEL_HAIKU = os.environ.get(
-    "BEDROCK_MODEL_HAIKU",
-    "us.anthropic.claude-haiku-4-5-20251001-v1:0",
-)
+BEDROCK_MODEL_HAIKU = "us.anthropic.claude-haiku-4-5-20251001-v1:0"
+BEDROCK_MODEL = os.environ.get("BEDROCK_MODEL", BEDROCK_MODEL_HAIKU)
 
 print(f"Verifying Bedrock access...")
 print(f"  Region : {AWS_REGION}")
-print(f"  Model  : {BEDROCK_MODEL_HAIKU}\n")
+print(f"  Model  : {BEDROCK_MODEL}\n")
 
 client = boto3.client("bedrock-runtime", region_name=AWS_REGION)
 
 try:
     response = client.converse(
-        modelId=BEDROCK_MODEL_HAIKU,
+        modelId=BEDROCK_MODEL,
         messages=[
             {
                 "role": "user",
